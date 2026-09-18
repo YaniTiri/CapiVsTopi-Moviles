@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://beuxksx3bqvjn"]
+
+[ext_resource type="AudioStream" uid="uid://bftj87jqcg02n" path="res://musica_sfx/derrota para capi vs topi.mp3" id="1_t0fyl"]
+
+[node name="Node2D" type="Node2D" unique_id=242719621]
+
+[node name="musica de derrota" type="AudioStreamPlayer2D" parent="." unique_id=71253149]
+stream = ExtResource("1_t0fyl")

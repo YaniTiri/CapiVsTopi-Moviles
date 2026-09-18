@@ -1,0 +1,76 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="capi-versus-topi"
+config/version="1.0.0"
+run/main_scene="uid://c4fkc6a76isnf"
+run/disable_stdout=true
+config/features=PackedStringArray("4.6", "Forward Plus")
+config/icon="uid://76qtere40d3n"
+
+[autoload]
+
+GameManager="*uid://bu8c7fhustfbm"
+MenuPausa="*uid://2u6o5tnmqxoi"
+SfxQuitarPlantar="*uid://ddxxb021be5nm"
+SfxRegarLasPlantas="*uid://bb6ufffrxu87"
+SfxDiamantes="*uid://bp11klf5j1cuf"
+SfxPala="*uid://0y82mdhlv11g"
+Disparo="*uid://dt40hvw16gjjl"
+SfxExplocion="*uid://dk7cqihst6u3y"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/stretch/mode="canvas_items"
+
+[file_customization]
+
+folder_colors={
+"res://Escenas/": "red",
+"res://Scrips/": "orange",
+"res://botones/": "green",
+"res://credito/": "pink"
+}
+
+[global_group]
+
+balas=""
+balas_topi=""
+
+[input]
+
+disparar={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+pausa={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+agachado={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"

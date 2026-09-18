@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d2q57cftl67tj"]
+
+[ext_resource type="Script" uid="uid://c8bd7i0xs3moi" path="res://Escenas/gestor_de_hp.gd" id="1_154t6"]
+
+[node name="GestorDeHp" type="Area2D" unique_id=701457431]
+script = ExtResource("1_154t6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=419568509]

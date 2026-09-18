@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dwldhkwxjru4j"]
+
+[ext_resource type="Script" uid="uid://b2rpgo7pf0mx3" path="res://Escenas/herramienta_cosechar.gd" id="1_flmdo"]
+[ext_resource type="Texture2D" uid="uid://bp2rj4co588m5" path="res://Assets/canasta.PNG" id="1_k82as"]
+[ext_resource type="PackedScene" uid="uid://cigksl8ii6dv3" path="res://Escenas/d&d_component.tscn" id="2_flmdo"]
+[ext_resource type="Shader" uid="uid://d2ri7egm4arn1" path="res://Scrips/brillo_herramientas.gdshader" id="2_kl0sg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sksog"]
+shader = ExtResource("2_kl0sg")
+shader_parameter/glow_intensity = 3.73200017727
+shader_parameter/glow_color = Color(1, 0.9490196, 0.69803923, 1)
+shader_parameter/glow_width = 16.338000776055
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kl0sg"]
+
+[node name="HerramientaCosechar" type="Node2D" unique_id=1797524600]
+script = ExtResource("1_flmdo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2041721258]
+material = SubResource("ShaderMaterial_sksog")
+scale = Vector2(0.43999934, 0.43999934)
+texture = ExtResource("1_k82as")
+
+[node name="D&dcomponent" parent="." unique_id=403408535 node_paths=PackedStringArray("sprite") instance=ExtResource("2_flmdo")]
+sprite = NodePath("../Sprite2D")
+
+[node name="Detector" type="Area2D" parent="." unique_id=151371920]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=1775878876]
+shape = SubResource("RectangleShape2D_kl0sg")

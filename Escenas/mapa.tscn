@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://dbp6pbuchacce"]
+
+[ext_resource type="Texture2D" uid="uid://dynp632ipqor8" path="res://botones/mapa.png" id="1_2jh14"]
+[ext_resource type="Script" uid="uid://dqb12idu83mfj" path="res://Escenas/mapa.gd" id="1_5d3jg"]
+[ext_resource type="Texture2D" uid="uid://civwb3ts6jvyr" path="res://botones/boton_mapa.png" id="2_70f7c"]
+[ext_resource type="Texture2D" uid="uid://blxvauircd4hg" path="res://botones/back.png" id="3_lrjei"]
+[ext_resource type="Texture2D" uid="uid://dpppbmqu3mmv7" path="res://botones/back_oscuro.png" id="4_5d3jg"]
+[ext_resource type="AudioStream" uid="uid://cco0oaklf7f7r" path="res://musica_sfx/musica_menu.mp3" id="6_nrv1i"]
+
+[node name="mapa" type="Control" unique_id=746319862]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5d3jg")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=147178851]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2jh14")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=265076306]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="boton_1" type="TextureButton" parent="." unique_id=768270387]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 477.0
+offset_right = 310.0
+offset_bottom = 577.0
+texture_normal = ExtResource("2_70f7c")
+
+[node name="1" type="Label" parent="boton_1" unique_id=110220406]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 23.0
+offset_right = 80.0
+offset_bottom = 46.0
+scale = Vector2(2.6264796, 1.7287904)
+text = "1"
+
+[node name="boton_2" type="TextureButton" parent="." unique_id=1809773652]
+layout_mode = 0
+offset_left = 545.0
+offset_top = 626.0
+offset_right = 704.0
+offset_bottom = 726.0
+texture_normal = ExtResource("2_70f7c")
+
+[node name="2" type="Label" parent="boton_2" unique_id=362612901]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 20.0
+offset_right = 86.0
+offset_bottom = 43.0
+scale = Vector2(1.9793187, 1.9400845)
+text = "2"
+
+[node name="boton_3" type="TextureButton" parent="." unique_id=589155527]
+layout_mode = 0
+offset_left = 1179.0
+offset_top = 758.0
+offset_right = 1338.0
+offset_bottom = 858.0
+texture_normal = ExtResource("2_70f7c")
+
+[node name="Label" type="Label" parent="boton_3" unique_id=1088715345]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 26.0
+offset_right = 92.0
+offset_bottom = 49.0
+scale = Vector2(1.6872656, 1.4528813)
+text = "?"
+
+[node name="boton_4" type="TextureButton" parent="." unique_id=712228726]
+layout_mode = 0
+offset_left = 1573.0
+offset_top = 661.0
+offset_right = 1732.0
+offset_bottom = 761.0
+texture_normal = ExtResource("2_70f7c")
+
+[node name="Label" type="Label" parent="boton_4" unique_id=1776084780]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 24.0
+offset_right = 91.0
+offset_bottom = 47.0
+scale = Vector2(1.4361622, 1.5548465)
+text = "?"
+
+[node name="boton_5" type="TextureButton" parent="." unique_id=533583984]
+layout_mode = 0
+offset_left = 1441.0
+offset_top = 294.0
+offset_right = 1600.0
+offset_bottom = 394.0
+texture_normal = ExtResource("2_70f7c")
+
+[node name="Label" type="Label" parent="boton_5" unique_id=936995554]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 24.0
+offset_right = 88.0
+offset_bottom = 47.0
+scale = Vector2(1.9027815, 1.6404693)
+text = "?"
+
+[node name="back" type="TextureButton" parent="." unique_id=1527189366]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 877.0
+offset_right = 340.0
+offset_bottom = 1005.0
+texture_normal = ExtResource("3_lrjei")
+texture_hover = ExtResource("4_5d3jg")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1304236898]
+stream = ExtResource("6_nrv1i")
+volume_db = -5.0
+autoplay = true
+
+[connection signal="pressed" from="boton_1" to="." method="_on_boton_1_pressed"]
+[connection signal="pressed" from="boton_2" to="." method="_on_boton_2_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

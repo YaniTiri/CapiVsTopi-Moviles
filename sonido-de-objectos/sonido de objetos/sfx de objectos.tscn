@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://barj1ucf6v451"]
+
+[ext_resource type="AudioStream" uid="uid://bex185lmp0kta" path="res://sfx/User Interface, Alert, Pops, Wobble, Bloop, Pops.mp3" id="1_gmjkp"]
+[ext_resource type="Script" uid="uid://b7tnq0fupql2j" path="res://sonido de objetos/sonidos_de_objectos.gd" id="2_6m53e"]
+
+[node name="Node" type="Node" unique_id=1378446086]
+
+[node name="sonidos de objectos" type="AudioStreamPlayer2D" parent="." unique_id=2081286162]
+stream = ExtResource("1_gmjkp")
+script = ExtResource("2_6m53e")

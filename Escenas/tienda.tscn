@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://bsixsh7w8w4vh"]
+
+[ext_resource type="Script" uid="uid://e4alhvcp1qsc" path="res://Escenas/puntaje_prov.gd" id="1_50q1o"]
+[ext_resource type="Script" uid="uid://jt2ywyx36jo" path="res://Escenas/tienda.gd" id="1_a2w3w"]
+[ext_resource type="Texture2D" uid="uid://6uy0bhc3s0qc" path="res://Assets/UImonedas.png" id="2_7flnv"]
+[ext_resource type="Texture2D" uid="uid://dkrkjq3kkdrtm" path="res://Assets/BG_1.png" id="2_v3u34"]
+[ext_resource type="FontFile" uid="uid://dt26tqnbpbtxh" path="res://tipografias/LuckiestGuy-Regular.ttf" id="3_a2w3w"]
+[ext_resource type="LabelSettings" uid="uid://ycdmqo4jip2u" path="res://tipografias/ui_settings.tres" id="4_lpnfq"]
+[ext_resource type="Texture2D" uid="uid://cxuwudpudawuu" path="res://Assets/botonCanion.png" id="7_56r47"]
+[ext_resource type="Texture2D" uid="uid://cnesmpguoip7n" path="res://botones/siguiente_nivel.png" id="7_lpnfq"]
+[ext_resource type="Texture2D" uid="uid://bfdhkjddup50i" path="res://Assets/botonSuperSemillas.png" id="8_lvtqr"]
+[ext_resource type="Texture2D" uid="uid://bay80kd4qrg7h" path="res://Assets/botonescudo.png" id="9_56r47"]
+[ext_resource type="AudioStream" uid="uid://cco0oaklf7f7r" path="res://musica_sfx/musica_menu.mp3" id="11_lvtqr"]
+
+[node name="Tienda" type="Node2D" unique_id=727019992]
+script = ExtResource("1_a2w3w")
+metadata/_edit_horizontal_guides_ = [614.0, 661.0, 362.0]
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=355394023]
+modulate = Color(0.28, 0.28, 0.28, 0.4627451)
+position = Vector2(1763, 540)
+texture = ExtResource("2_v3u34")
+metadata/_edit_lock_ = true
+
+[node name="Puntaje_prov" type="CanvasLayer" parent="." unique_id=2036794977]
+script = ExtResource("1_50q1o")
+
+[node name="Sprite2D" type="Sprite2D" parent="Puntaje_prov" unique_id=1393362046]
+position = Vector2(1027, 183)
+texture = ExtResource("2_7flnv")
+
+[node name="monedas" type="Label" parent="Puntaje_prov" unique_id=864863742]
+offset_left = 1051.0
+offset_top = 136.0
+offset_right = 1140.0
+offset_bottom = 183.0
+theme_override_fonts/font = ExtResource("3_a2w3w")
+theme_override_font_sizes/font_size = 34
+text = "0000"
+label_settings = ExtResource("4_lpnfq")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BotonCanion" type="TextureButton" parent="." unique_id=739202623]
+offset_left = 487.0
+offset_top = 357.99997
+offset_right = 826.0
+offset_bottom = 696.0
+scale = Vector2(0.9200001, 0.9200001)
+texture_normal = ExtResource("7_56r47")
+
+[node name="Label" type="Label" parent="BotonCanion" unique_id=1923378861]
+layout_mode = 0
+offset_left = 42.391327
+offset_top = 242.39133
+offset_right = 294.56522
+offset_bottom = 298.91306
+text = "$150"
+label_settings = ExtResource("4_lpnfq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BotonSuperSemillas" type="TextureButton" parent="." unique_id=712738682]
+offset_left = 934.99994
+offset_top = 358.0
+offset_right = 1274.0
+offset_bottom = 696.0
+scale = Vector2(0.9200001, 0.9200001)
+texture_normal = ExtResource("8_lvtqr")
+
+[node name="Label" type="Label" parent="BotonSuperSemillas" unique_id=1845986246]
+layout_mode = 0
+offset_left = 47.826088
+offset_top = 242.3913
+offset_right = 297.82608
+offset_bottom = 298.91302
+text = "x10 = $100"
+label_settings = ExtResource("4_lpnfq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BotonValla" type="TextureButton" parent="." unique_id=1377412759]
+offset_left = 1324.9999
+offset_top = 358.99997
+offset_right = 1663.9999
+offset_bottom = 698.0
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("9_56r47")
+
+[node name="Label" type="Label" parent="BotonValla" unique_id=1654809734]
+layout_mode = 0
+offset_left = 30.434782
+offset_top = 254.2174
+offset_right = 301.43478
+offset_bottom = 290.2174
+text = "$100"
+label_settings = ExtResource("4_lpnfq")
+horizontal_alignment = 1
+
+[node name="siguiente_nivel" type="TextureButton" parent="." unique_id=499367895]
+offset_left = 906.0
+offset_top = 796.0
+offset_right = 1209.0
+offset_bottom = 916.0
+texture_normal = ExtResource("7_lpnfq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1632587822]
+stream = ExtResource("11_lvtqr")
+volume_db = -5.0
+autoplay = true
+
+[connection signal="pressed" from="BotonCanion" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="BotonSuperSemillas" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="BotonValla" to="." method="_on_texture_button_3_pressed"]
+[connection signal="pressed" from="siguiente_nivel" to="." method="_on_siguiente_nivel_pressed"]

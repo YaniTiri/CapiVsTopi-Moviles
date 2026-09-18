@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b128w1eadn0ht"]
+
+[ext_resource type="Script" uid="uid://77cenyjdpgrl" path="res://Escenas/herramienta_regadera.gd" id="1_wdxet"]
+[ext_resource type="Texture2D" uid="uid://bcxbfw85ecy2s" path="res://Assets/regadera.PNG" id="2_a6y38"]
+[ext_resource type="Material" uid="uid://cpemnmwwkjk6p" path="res://sfx/new_shader_material.tres" id="2_ax3oc"]
+[ext_resource type="PackedScene" uid="uid://cigksl8ii6dv3" path="res://Escenas/d&d_component.tscn" id="3_ax3oc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0h46n"]
+size = Vector2(22.731712, 33.1243)
+
+[node name="HerramientaRegadera" type="Node2D" unique_id=283992507]
+script = ExtResource("1_wdxet")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1953126240]
+material = ExtResource("2_ax3oc")
+position = Vector2(1, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_a6y38")
+
+[node name="D&dcomponent" parent="." unique_id=403408535 node_paths=PackedStringArray("sprite") instance=ExtResource("3_ax3oc")]
+sprite = NodePath("../Sprite2D")
+
+[node name="Detector" type="Area2D" parent="." unique_id=2083887358]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=904207268]
+position = Vector2(0.50000095, -1.5)
+scale = Vector2(0.707682, 0.4856503)
+shape = SubResource("RectangleShape2D_0h46n")

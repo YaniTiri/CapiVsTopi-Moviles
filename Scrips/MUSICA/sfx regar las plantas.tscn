@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bb6ufffrxu87"]
+
+[ext_resource type="Script" uid="uid://cc12e2v7v7tmr" path="res://Scrips/sfx_regar_las_plantas.gd" id="1_agrg4"]
+[ext_resource type="AudioStream" uid="uid://i814uufg86t8" path="res://sfx/regar las plantas.mp3" id="1_cuutf"]
+
+[node name="Node2D" type="Node2D" unique_id=1745204047]
+script = ExtResource("1_agrg4")
+
+[node name="regar las platas" type="AudioStreamPlayer2D" parent="." unique_id=666809122]
+stream = ExtResource("1_cuutf")

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bp11klf5j1cuf"]
+
+[ext_resource type="Script" uid="uid://bpktttwcahr55" path="res://Scrips/sfx_diamantes.gd" id="1_dev56"]
+[ext_resource type="AudioStream" uid="uid://b3qulnxmtu1ew" path="res://sfx/diamantes.mp3" id="1_vv7gg"]
+
+[node name="Node2D" type="Node2D" unique_id=1734339684]
+script = ExtResource("1_dev56")
+
+[node name="dimantes" type="AudioStreamPlayer2D" parent="." unique_id=120714390]
+stream = ExtResource("1_vv7gg")
+autoplay = true

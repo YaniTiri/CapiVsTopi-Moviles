@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cosgtsr787ygu"]
+
+[ext_resource type="AudioStream" uid="uid://bvdtvxmgt1ds5" path="res://musica_sfx/nivel_1.mp3" id="1_epprv"]
+
+[node name="Node2D" type="Node2D" unique_id=288787870]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1610928130]
+stream = ExtResource("1_epprv")

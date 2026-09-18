@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dlra8m6ikrakg"]
+
+[ext_resource type="AudioStream" uid="uid://1d4tixswml3v" path="res://sonido de ataque/User Interface, Alert, Pops, Wobble, Bloop, Pops.mp3" id="1_x5m24"]
+[ext_resource type="Script" uid="uid://ecytyhfi22r0" path="res://sonido de ataque/sonido_de_gemas.gd" id="2_goji2"]
+
+[node name="Node" type="Node" unique_id=164665474]
+
+[node name="sonido de gemas" type="AudioStreamPlayer2D" parent="." unique_id=1786165786]
+stream = ExtResource("1_x5m24")
+script = ExtResource("2_goji2")

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c4fkc6a76isnf"]
+
+[ext_resource type="Script" uid="uid://djhdgmh4unwsr" path="res://Escenas/logo.gd" id="1_hgdat"]
+[ext_resource type="Texture2D" uid="uid://b2d3q4kq0fm57" path="res://botones/logo.png" id="1_iyh20"]
+
+[node name="logo" type="Control" unique_id=302483482]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hgdat")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1929119417]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_iyh20")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2028210393]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)

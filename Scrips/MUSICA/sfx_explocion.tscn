@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dk7cqihst6u3y"]
+
+[ext_resource type="AudioStream" uid="uid://bgrj1popdpccq" path="res://sfx/explocion.wav" id="1_58wv6"]
+[ext_resource type="Script" uid="uid://cec0re3efypf2" path="res://Scrips/explocion.gd" id="2_okx6p"]
+
+[node name="Node" type="Node" unique_id=1774357403]
+
+[node name="explocion" type="AudioStreamPlayer2D" parent="." unique_id=891289685]
+stream = ExtResource("1_58wv6")
+script = ExtResource("2_okx6p")

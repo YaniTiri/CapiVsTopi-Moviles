@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://kbvgen2nd1ix"]
+
+[ext_resource type="AudioStream" uid="uid://bcjnkstktd8uq" path="res://sfx/Cartoon, Pop, Pops x6.mp3" id="1_h1i3s"]
+[ext_resource type="Script" uid="uid://bpb72mqdjmpwp" path="res://sonido de pala/scripts/audio_stream_player_2d.gd" id="2_hx3qp"]
+
+[node name="audiomanager" type="Node" unique_id=134545903]
+
+[node name="sonido de pala" type="AudioStreamPlayer2D" parent="." unique_id=1385428654]
+stream = ExtResource("1_h1i3s")
+script = ExtResource("2_hx3qp")

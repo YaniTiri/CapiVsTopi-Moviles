@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b3xlrkyif0525"]
+
+[ext_resource type="Script" uid="uid://dtlpmks1bc133" path="res://Escenas/escudo.gd" id="1_k2nii"]
+[ext_resource type="Texture2D" uid="uid://cdoxhufi5btte" path="res://Assets/vallanuevaFlipeada.png" id="2_a1uio"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlvce"]
+size = Vector2(104, 129)
+
+[node name="escudo" type="Area2D" unique_id=229069367]
+script = ExtResource("1_k2nii")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=708356235]
+z_index = 2
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_a1uio")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1904725836]
+position = Vector2(-2, 0.5)
+shape = SubResource("RectangleShape2D_qlvce")

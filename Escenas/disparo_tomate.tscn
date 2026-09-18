@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://uov4iikb22lb"]
+
+[ext_resource type="Script" uid="uid://da2kefy3a5xg0" path="res://Escenas/disparo_tomate.gd" id="1_sptf6"]
+[ext_resource type="Texture2D" uid="uid://ded8itbw46wk0" path="res://Assets/tomate.png" id="2_xgd6a"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sptf6"]
+friction = 0.65
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kqr21"]
+
+[node name="DisparoTomate" type="RigidBody2D" unique_id=1650744345 groups=["balas"]]
+collision_layer = 512
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_sptf6")
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_sptf6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=456553735]
+texture = ExtResource("2_xgd6a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1148663403]
+scale = Vector2(1.5599997, 1.5599997)
+shape = SubResource("CircleShape2D_kqr21")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=388293223]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

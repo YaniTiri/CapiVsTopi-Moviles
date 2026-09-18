@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cuqlh4um2nnfv"]
+
+[ext_resource type="AudioStream" uid="uid://diagf6amqej41" path="res://musica_sfx/victoria.mp3" id="1_0ewcd"]
+
+[node name="Node2D" type="Node2D" unique_id=576079241]
+
+[node name="musicadevictoria" type="AudioStreamPlayer2D" parent="." unique_id=1827861632]
+stream = ExtResource("1_0ewcd")

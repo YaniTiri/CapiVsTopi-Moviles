@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://r4ld66xqojq8"]
+
+[ext_resource type="Script" uid="uid://c0gdbs2oy5icm" path="res://Escenas/herramienta_semillas.gd" id="1_n68nk"]
+[ext_resource type="Texture2D" uid="uid://dmtwbm8rwixs8" path="res://Assets/bolsa.png" id="2_n68nk"]
+[ext_resource type="Shader" uid="uid://d2ri7egm4arn1" path="res://Scrips/brillo_herramientas.gdshader" id="2_ugsyh"]
+[ext_resource type="PackedScene" uid="uid://cigksl8ii6dv3" path="res://Escenas/d&d_component.tscn" id="3_8vguc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8vguc"]
+shader = ExtResource("2_ugsyh")
+shader_parameter/glow_intensity = 3.73200017727
+shader_parameter/glow_color = Color(1, 0.95, 0.7, 1)
+shader_parameter/glow_width = 20.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6a2wy"]
+size = Vector2(13.098767, 18.870049)
+
+[node name="HerramientaSemillas" type="Node2D" unique_id=299039002]
+script = ExtResource("1_n68nk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=696995917]
+material = SubResource("ShaderMaterial_8vguc")
+position = Vector2(0.99999905, -5.0000005)
+scale = Vector2(0.44000036, 0.44000036)
+texture = ExtResource("2_n68nk")
+
+[node name="D&dcomponent" parent="." unique_id=403408535 node_paths=PackedStringArray("sprite") instance=ExtResource("3_8vguc")]
+sprite = NodePath("../Sprite2D")
+
+[node name="Detector" type="Area2D" parent="." unique_id=786367305]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=188025975]
+position = Vector2(1, 1.0000002)
+scale = Vector2(1.3741751, 0.8479045)
+shape = SubResource("RectangleShape2D_6a2wy")

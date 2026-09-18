@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dwdxdgcyu2x2j"]
+
+[ext_resource type="Texture2D" uid="uid://otpi5np6hgh4" path="res://Assets/canion_techo.png" id="1_xs8wh"]
+[ext_resource type="Script" uid="uid://onk1783ny1je" path="res://Escenas/canion_techo.gd" id="2_71802"]
+[ext_resource type="Texture2D" uid="uid://dkrkjq3kkdrtm" path="res://Assets/BG_1.png" id="2_q355b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xs8wh"]
+size = Vector2(12.028455, 37.878788)
+
+[node name="CanionTecho" type="Node2D" unique_id=720275177]
+script = ExtResource("2_71802")
+metadata/_edit_horizontal_guides_ = [798.0, 223.0]
+metadata/_edit_vertical_guides_ = [419.0]
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=207487960]
+visible = false
+position = Vector2(1763, 540)
+texture = ExtResource("2_q355b")
+metadata/_edit_lock_ = true
+
+[node name="SalidaCanion" type="Marker2D" parent="." unique_id=1733834247]
+position = Vector2(321, 361)
+
+[node name="canion_techo" type="Sprite2D" parent="." unique_id=962716531]
+position = Vector2(210, 522)
+texture = ExtResource("1_xs8wh")
+
+[node name="TimerCanion" type="Timer" parent="." unique_id=657862548]
+wait_time = 2.5
+
+[node name="AreaVision" type="Area2D" parent="." unique_id=958683461]
+position = Vector2(-273, 651)
+scale = Vector2(0.7199997, 0.55999935)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaVision" unique_id=1603709438]
+position = Vector2(1447.8566, 204)
+scale = Vector2(268.24, 10.559999)
+shape = SubResource("RectangleShape2D_xs8wh")
+
+[connection signal="body_entered" from="AreaVision" to="." method="_on_area_vision_body_entered"]
+[connection signal="body_exited" from="AreaVision" to="." method="_on_area_vision_body_exited"]

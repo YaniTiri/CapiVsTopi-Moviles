@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://0y82mdhlv11g"]
+
+[ext_resource type="AudioStream" uid="uid://svd7kag343kv" path="res://sfx/pala.wav" id="1_d0afy"]
+[ext_resource type="Script" uid="uid://bxupa1knxuvm2" path="res://Scrips/sfx_pala.gd" id="2_r37yl"]
+
+[node name="audiomanager" type="Node" unique_id=1618501679]
+
+[node name="sfx_pala" type="AudioStreamPlayer2D" parent="." unique_id=2111407371]
+stream = ExtResource("1_d0afy")
+script = ExtResource("2_r37yl")

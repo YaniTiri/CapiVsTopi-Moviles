@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://csmiu54y2uyng"]
+
+[ext_resource type="Script" uid="uid://ccqfa4a4l36wk" path="res://Escenas/parcela_tierra.gd" id="1_e1oio"]
+[ext_resource type="Texture2D" uid="uid://dk42nvgyhhicv" path="res://Assets/BG_1__planta_tierra.png" id="1_ymdfu"]
+[ext_resource type="AudioStream" uid="uid://i814uufg86t8" path="res://sfx/regar las plantas.mp3" id="3_y0sav"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1oio"]
+size = Vector2(23.728817, 35)
+
+[node name="parcelaTierra" type="Area2D" unique_id=1531952277]
+collision_mask = 0
+script = ExtResource("1_e1oio")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=776051216]
+texture = ExtResource("1_ymdfu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=282385210]
+position = Vector2(2, -1.5)
+scale = Vector2(4.7199993, 1)
+shape = SubResource("RectangleShape2D_e1oio")
+metadata/_edit_lock_ = true
+
+[node name="SonidoRegar" type="AudioStreamPlayer" parent="." unique_id=888398493]
+stream = ExtResource("3_y0sav")
+max_polyphony = 3
+
+[node name="SonidoCosechar" type="AudioStreamPlayer" parent="." unique_id=577769280]
+max_polyphony = 3

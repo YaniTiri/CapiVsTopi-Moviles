@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cpemnmwwkjk6p"]
+
+[ext_resource type="Shader" uid="uid://d2ri7egm4arn1" path="res://Scrips/brillo_herramientas.gdshader" id="1_8pg5e"]
+
+[resource]
+shader = ExtResource("1_8pg5e")
+shader_parameter/glow_intensity = 3.7230001768425
+shader_parameter/glow_color = Color(1, 0.9490196, 0.69803923, 1)
+shader_parameter/glow_width = 10.986000521835

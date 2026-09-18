@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://d3yxiq7vixdfe"]
+
+[ext_resource type="Script" uid="uid://cxhsty3228tnv" path="res://Escenas/nivel_1_completado.gd" id="1_cuh1q"]
+[ext_resource type="Texture2D" uid="uid://fej04tr66rg2" path="res://Assets/nivel_1_completado.png" id="1_v8h46"]
+[ext_resource type="Texture2D" uid="uid://dkrkjq3kkdrtm" path="res://Assets/BG_1.png" id="2_4op40"]
+[ext_resource type="Texture2D" uid="uid://cnesmpguoip7n" path="res://botones/siguiente_nivel.png" id="2_cuh1q"]
+[ext_resource type="Texture2D" uid="uid://djhd37uyqkp77" path="res://botones/volver_a_intentar.png" id="3_4op40"]
+[ext_resource type="Texture2D" uid="uid://d0ct5tk7oi875" path="res://botones/ir_al_mapa.png" id="4_1bkp7"]
+[ext_resource type="AudioStream" uid="uid://diagf6amqej41" path="res://musica_sfx/victoria.mp3" id="7_c6ky1"]
+
+[node name="nivel_1_completado" type="Control" unique_id=1061625479]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cuh1q")
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=219268305]
+position = Vector2(1763, 540)
+texture = ExtResource("2_4op40")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=696489115]
+layout_mode = 0
+offset_right = 3844.0
+offset_bottom = 2154.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_v8h46")
+
+[node name="siguiente_nivel" type="TextureButton" parent="." unique_id=86966797]
+layout_mode = 0
+offset_left = 1195.0
+offset_top = 757.0
+offset_right = 1498.0
+offset_bottom = 877.0
+texture_normal = ExtResource("2_cuh1q")
+
+[node name="volve_a_intentar" type="TextureButton" parent="." unique_id=766155224]
+layout_mode = 0
+offset_left = 719.0
+offset_top = 675.0
+offset_right = 1427.0
+offset_bottom = 1027.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("3_4op40")
+
+[node name="ir_a_mapa" type="TextureButton" parent="." unique_id=747446794]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 757.0
+offset_right = 836.0
+offset_bottom = 876.0
+texture_normal = ExtResource("4_1bkp7")
+
+[node name="monedas" type="Label" parent="." unique_id=1053370738]
+layout_mode = 0
+offset_left = 627.0
+offset_top = 695.0
+offset_right = 664.0
+offset_bottom = 718.0
+scale = Vector2(2.993141, 2.2181349)
+text = "0000"
+
+[node name="tomates" type="Label" parent="." unique_id=2131646163]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 690.00006
+offset_right = 997.0
+offset_bottom = 713.00006
+scale = Vector2(3.014954, 2.2400026)
+text = "0000"
+
+[node name="logro" type="Label" parent="." unique_id=363145443]
+layout_mode = 0
+offset_left = 1317.0
+offset_top = 692.0
+offset_right = 1357.0
+offset_bottom = 715.0
+scale = Vector2(3.0000002, 2.1600049)
+text = "0000"
+
+[node name="Victoria" type="AudioStreamPlayer" parent="." unique_id=468023530]
+stream = ExtResource("7_c6ky1")
+volume_db = -5.0
+autoplay = true
+
+[connection signal="pressed" from="siguiente_nivel" to="." method="_on_siguiente_nivel_pressed"]
+[connection signal="pressed" from="volve_a_intentar" to="." method="_on_volve_a_intentar_pressed"]
+[connection signal="pressed" from="ir_a_mapa" to="." method="_on_ir_a_mapa_pressed"]

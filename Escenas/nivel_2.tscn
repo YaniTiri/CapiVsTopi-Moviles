@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://ck8s6rl8v8bjd"]
+
+[ext_resource type="Texture2D" uid="uid://dkrkjq3kkdrtm" path="res://Assets/BG_1.png" id="1_0n8q0"]
+[ext_resource type="Script" uid="uid://dkoh31j10h606" path="res://Escenas/nivel_1.gd" id="1_mbn1r"]
+[ext_resource type="PackedScene" uid="uid://cxw065dy06eeb" path="res://Escenas/capi.tscn" id="3_5us05"]
+[ext_resource type="Script" uid="uid://b0tel4kbcad6i" path="res://Escenas/spawner_topos.gd" id="4_udchn"]
+[ext_resource type="PackedScene" uid="uid://duenmj8ivln36" path="res://Escenas/mundoHuerta_prueba.tscn" id="5_jtfu3"]
+[ext_resource type="FontFile" uid="uid://dt26tqnbpbtxh" path="res://tipografias/LuckiestGuy-Regular.ttf" id="6_wm566"]
+[ext_resource type="LabelSettings" uid="uid://npsdjyyktbs6" path="res://tipografias/mensajes_label_settings.tres" id="7_ypue5"]
+[ext_resource type="AudioStream" uid="uid://d4cxkvxc43nmd" path="res://musica_sfx/nivel_2.mp3" id="8_5us05"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbn1r"]
+
+[node name="Nivel2" type="Node2D" unique_id=2084416755]
+script = ExtResource("1_mbn1r")
+topos_a_derrotar = 20
+tiempo_huerta = 20.0
+siguiente_escena = "uid://ck8s6rl8v8bjd"
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=1144822905]
+position = Vector2(1763, 540)
+texture = ExtResource("1_0n8q0")
+metadata/_edit_lock_ = true
+
+[node name="Capi" parent="." unique_id=402564657 instance=ExtResource("3_5us05")]
+position = Vector2(516, 621)
+scale = Vector2(0.52, 0.52)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1741267232]
+position = Vector2(961, 541)
+metadata/_edit_lock_ = true
+
+[node name="SpawnerTopos" type="Marker2D" parent="." unique_id=2042843427]
+position = Vector2(3083, 626)
+script = ExtResource("4_udchn")
+dificultad_actual = 2
+
+[node name="TimerOleada" type="Timer" parent="SpawnerTopos" unique_id=675300901]
+wait_time = 6.0
+
+[node name="MundoHuertaPrueba" parent="." unique_id=757438057 instance=ExtResource("5_jtfu3")]
+
+[node name="Mensajes" type="CanvasLayer" parent="." unique_id=1839328495]
+
+[node name="Mensajes_nivel" type="Label" parent="Mensajes" unique_id=1086187785]
+offset_left = 798.0
+offset_top = 370.0
+offset_right = 1323.0
+offset_bottom = 442.0
+theme_override_colors/font_shadow_color = Color(0.1386, 0.35958996, 0.77, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = ExtResource("6_wm566")
+theme_override_font_sizes/font_size = 54
+text = "Nivel 1 completado!!!"
+label_settings = ExtResource("7_ypue5")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2133168882]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1161564238]
+position = Vector2(969, 794)
+scale = Vector2(99.48, 2.12)
+shape = SubResource("RectangleShape2D_mbn1r")
+debug_color = Color(0.660971, 0, 0.36298633, 0.41960785)
+
+[node name="capavictoria" type="CanvasLayer" parent="." unique_id=2120758840]
+
+[node name="Nivel2" type="AudioStreamPlayer" parent="." unique_id=293497026]
+stream = ExtResource("8_5us05")
+volume_db = -10.0
+autoplay = true

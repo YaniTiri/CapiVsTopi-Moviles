@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bicnl02nevwm0"]
+
+[ext_resource type="Script" uid="uid://c0gl04p7sk0gt" path="res://Escenas/disparo_base.gd" id="1_t1rwb"]
+
+[node name="DisparoBase" type="Area2D" unique_id=906054157 groups=["balas"]]
+script = ExtResource("1_t1rwb")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1151612565]

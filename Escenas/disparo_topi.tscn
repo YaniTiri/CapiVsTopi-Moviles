@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d4p8cyoqya0x"]
+
+[ext_resource type="Script" uid="uid://dia4b7jmtixwx" path="res://Escenas/disparo_topi.gd" id="1_yuwfm"]
+[ext_resource type="Texture2D" uid="uid://drgoq5njcpxd3" path="res://Assets/cristales_verdes.png" id="2_5xej1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xej1"]
+size = Vector2(36, 23)
+
+[node name="disparo_topi" type="Area2D" unique_id=1295119535 groups=["balas_topi"]]
+collision_layer = 8
+script = ExtResource("1_yuwfm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1353038225]
+position = Vector2(0, 6)
+scale = Vector2(0.115384616, 0.10869565)
+texture = ExtResource("2_5xej1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1291155303]
+position = Vector2(1, 7.5)
+shape = SubResource("RectangleShape2D_5xej1")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1299976476]

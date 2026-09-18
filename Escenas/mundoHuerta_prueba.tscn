@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://duenmj8ivln36"]
+
+[ext_resource type="Texture2D" uid="uid://dkrkjq3kkdrtm" path="res://Assets/BG_1.png" id="1_1tbuh"]
+[ext_resource type="PackedScene" uid="uid://csmiu54y2uyng" path="res://Escenas/parcela_tierra.tscn" id="3_lt0pu"]
+[ext_resource type="Texture2D" uid="uid://ddpqy8wila8c4" path="res://Assets/botonSemillas.png" id="4_h2qel"]
+[ext_resource type="Script" uid="uid://c3x61rlevibot" path="res://Escenas/botones_huerta.gd" id="4_ws310"]
+[ext_resource type="Texture2D" uid="uid://c0mowerskp8gr" path="res://Assets/botonRegadera.png" id="5_467ac"]
+[ext_resource type="Texture2D" uid="uid://bbadvecnhx4l6" path="res://Assets/botonCanasta.png" id="6_gimqf"]
+[ext_resource type="Texture2D" uid="uid://6uy0bhc3s0qc" path="res://Assets/UImonedas.png" id="7_467ac"]
+[ext_resource type="Script" uid="uid://e4alhvcp1qsc" path="res://Escenas/puntaje_prov.gd" id="7_gimqf"]
+[ext_resource type="Texture2D" uid="uid://bay80kd4qrg7h" path="res://Assets/botonescudo.png" id="7_u24l1"]
+[ext_resource type="LabelSettings" uid="uid://b1awagy0mk5j0" path="res://tipografias/semillasHUD_settings.tres" id="8_leyp3"]
+[ext_resource type="Texture2D" uid="uid://db6ourjk8ufqs" path="res://Assets/UIoleada_topos.png" id="9_76q2b"]
+[ext_resource type="FontFile" uid="uid://dt26tqnbpbtxh" path="res://tipografias/LuckiestGuy-Regular.ttf" id="10_3ssh1"]
+[ext_resource type="LabelSettings" uid="uid://ycdmqo4jip2u" path="res://tipografias/ui_settings.tres" id="11_3ssh1"]
+[ext_resource type="Texture2D" uid="uid://dl3mqse37vu4u" path="res://Assets/UI_barra_vida_base.png" id="12_qfr17"]
+[ext_resource type="Script" uid="uid://bqachtkgjfo84" path="res://Escenas/topos_derrotados.gd" id="13_3of7u"]
+[ext_resource type="Texture2D" uid="uid://ccneh7irro2js" path="res://Assets/UI_barra_vida_color.png" id="13_d2ylm"]
+[ext_resource type="Script" uid="uid://dh6t6wq1xybdm" path="res://Escenas/barra_vida.gd" id="13_u24l1"]
+
+[node name="MundoHuertaPrueba" type="Node2D" unique_id=757438057]
+metadata/_edit_horizontal_guides_ = [243.0, 40.0]
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=627682134]
+visible = false
+position = Vector2(1763, 540)
+texture = ExtResource("1_1tbuh")
+metadata/_edit_lock_ = true
+
+[node name="parcelaTierra6" parent="." unique_id=1817082500 instance=ExtResource("3_lt0pu")]
+position = Vector2(912, 696)
+
+[node name="parcelaTierra6" parent="parcelaTierra6" unique_id=1531952277 instance=ExtResource("3_lt0pu")]
+position = Vector2(123, 1)
+
+[node name="parcelaTierra3" parent="." unique_id=1681226325 instance=ExtResource("3_lt0pu")]
+position = Vector2(786, 695)
+
+[node name="parcelaTierra5" parent="." unique_id=1816717725 instance=ExtResource("3_lt0pu")]
+position = Vector2(855, 735)
+
+[node name="parcelaTierra5" parent="parcelaTierra5" unique_id=1980774878 instance=ExtResource("3_lt0pu")]
+position = Vector2(122, 2)
+
+[node name="parcelaTierra2" parent="." unique_id=1798375435 instance=ExtResource("3_lt0pu")]
+position = Vector2(729, 734)
+
+[node name="parcelaTierra4" parent="." unique_id=1213065538 instance=ExtResource("3_lt0pu")]
+position = Vector2(798, 776)
+
+[node name="parcelaTierra4" parent="parcelaTierra4" unique_id=947490640 instance=ExtResource("3_lt0pu")]
+position = Vector2(124, 2)
+
+[node name="parcelaTierra" parent="." unique_id=30648409 instance=ExtResource("3_lt0pu")]
+position = Vector2(672, 775)
+
+[node name="BotonesHuerta" type="CanvasLayer" parent="." unique_id=177640428]
+script = ExtResource("4_ws310")
+
+[node name="ContenedorFade" type="Control" parent="BotonesHuerta" unique_id=1967574812]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BotonSemillas" type="TextureButton" parent="BotonesHuerta/ContenedorFade" unique_id=504865737]
+layout_mode = 0
+offset_left = 693.0
+offset_top = 40.0
+offset_right = 1032.0
+offset_bottom = 378.0
+scale = Vector2(0.6, 0.6)
+focus_mode = 0
+texture_normal = ExtResource("4_h2qel")
+
+[node name="BotonRegadera" type="TextureButton" parent="BotonesHuerta/ContenedorFade" unique_id=770475113]
+layout_mode = 0
+offset_left = 917.9999
+offset_top = 40.0
+offset_right = 1259.6682
+offset_bottom = 378.0
+scale = Vector2(0.5999975, 0.59999776)
+focus_mode = 0
+texture_normal = ExtResource("5_467ac")
+
+[node name="BotonCanasta" type="TextureButton" parent="BotonesHuerta/ContenedorFade" unique_id=296826588]
+layout_mode = 0
+offset_left = 1145.0
+offset_top = 40.0
+offset_right = 1484.0
+offset_bottom = 378.0
+scale = Vector2(0.6000049, 0.6000049)
+focus_mode = 0
+texture_normal = ExtResource("6_gimqf")
+
+[node name="BotonEscudo" type="TextureButton" parent="BotonesHuerta/ContenedorFade" unique_id=2015451612]
+layout_mode = 0
+offset_left = 1373.0
+offset_top = 37.0
+offset_right = 1712.0
+offset_bottom = 376.0
+scale = Vector2(0.6, 0.6)
+focus_mode = 0
+texture_normal = ExtResource("7_u24l1")
+
+[node name="SemillasPoderosasLabel" type="Label" parent="BotonesHuerta/ContenedorFade" unique_id=1736367581]
+layout_mode = 0
+offset_left = 722.0
+offset_top = 188.0
+offset_right = 786.0
+offset_bottom = 224.0
+text = "x00"
+label_settings = ExtResource("8_leyp3")
+
+[node name="Monedas" type="CanvasLayer" parent="." unique_id=932468122]
+script = ExtResource("7_gimqf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Monedas" unique_id=1427725466]
+position = Vector2(222, 980)
+texture = ExtResource("7_467ac")
+
+[node name="monedas" type="Label" parent="Monedas" unique_id=502212195]
+offset_left = 246.0
+offset_top = 933.0
+offset_right = 335.0
+offset_bottom = 980.0
+theme_override_fonts/font = ExtResource("10_3ssh1")
+theme_override_font_sizes/font_size = 34
+text = "0000"
+label_settings = ExtResource("11_3ssh1")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Topos_derrotados" type="CanvasLayer" parent="." unique_id=1585621118]
+script = ExtResource("13_3of7u")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Topos_derrotados" unique_id=641792854]
+position = Vector2(1772, 144)
+texture = ExtResource("9_76q2b")
+
+[node name="oleadaTopos" type="Label" parent="Topos_derrotados" unique_id=904037729]
+offset_left = 1748.0
+offset_top = 97.0
+offset_right = 1836.0
+offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("10_3ssh1")
+theme_override_font_sizes/font_size = 34
+text = "10/10"
+label_settings = ExtResource("11_3ssh1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Barra_vida" type="CanvasLayer" parent="." unique_id=1652684238]
+script = ExtResource("13_u24l1")
+
+[node name="Barra_vida_base" type="Sprite2D" parent="Barra_vida" unique_id=415411349]
+position = Vector2(249, 144)
+texture = ExtResource("12_qfr17")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Barra_vida/Barra_vida_base" unique_id=286895849]
+modulate = Color(0.34901962, 0.79607844, 0.39215687, 1)
+offset_left = -223.0
+offset_top = -93.0
+offset_right = 223.0
+offset_bottom = 93.0
+texture_progress = ExtResource("13_d2ylm")
+
+[connection signal="button_down" from="BotonesHuerta/ContenedorFade/BotonSemillas" to="BotonesHuerta" method="_on_boton_semillas_button_down"]
+[connection signal="button_down" from="BotonesHuerta/ContenedorFade/BotonRegadera" to="BotonesHuerta" method="_on_boton_regadera_button_down"]
+[connection signal="button_down" from="BotonesHuerta/ContenedorFade/BotonCanasta" to="BotonesHuerta" method="_on_boton_canasta_button_down"]
+[connection signal="button_down" from="BotonesHuerta/ContenedorFade/BotonEscudo" to="BotonesHuerta" method="_on_boton_escudo_button_down"]

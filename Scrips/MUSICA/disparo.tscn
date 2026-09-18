@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dt40hvw16gjjl"]
+
+[ext_resource type="AudioStream" uid="uid://dd8p1yhgrixkx" path="res://sfx/disparo.mp3" id="1_vtobe"]
+[ext_resource type="Script" uid="uid://dbjdfs87blkv8" path="res://Scrips/disparo.gd" id="2_5gadp"]
+
+[node name="Node" type="Node" unique_id=1027265281]
+
+[node name="disparo" type="AudioStreamPlayer2D" parent="." unique_id=825276469]
+stream = ExtResource("1_vtobe")
+script = ExtResource("2_5gadp")

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://boburlndt6a84"]
+
+[ext_resource type="Script" uid="uid://bj635xate8wyt" path="res://credito/credito.gd" id="1_d88b2"]
+[ext_resource type="Texture2D" uid="uid://cb3t4h8vcu1dv" path="res://credito/Gemini_Generated_Image_y86p0ry86p0ry86p.png" id="1_es2r4"]
+[ext_resource type="Texture2D" uid="uid://dqalokn8frgkl" path="res://botones/back.png" id="3_d88b2"]
+[ext_resource type="Texture2D" uid="uid://dm5cdcqm4b4tv" path="res://botones/back_oscuro.png" id="4_aj851"]
+[ext_resource type="AudioStream" uid="uid://j71n03kcx83x" path="res://musica_sfx/musica_menu.mp3" id="5_d88b2"]
+
+[node name="credito" type="Control" unique_id=1493546294]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d88b2")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=244437434]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_es2r4")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1682622303]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 918.0
+offset_right = 280.0
+offset_bottom = 1049.0
+texture_normal = ExtResource("3_d88b2")
+texture_hover = ExtResource("4_aj851")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=978361092]
+stream = ExtResource("5_d88b2")
+autoplay = true
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

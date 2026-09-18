@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b7uakkcs53hks"]
+
+[ext_resource type="AudioStream" uid="uid://chw3u8v7wqkwl" path="res://Pop Sound Effect Cartoon  Free Download  No Copyright.mp3" id="1_v5qhk"]
+[ext_resource type="Script" uid="uid://4u644lb6i46u" path="res://audio_stream_player_2d.gd" id="2_l4iyh"]
+
+[node name="Node" type="Node" unique_id=1363924386]
+
+[node name="sonidodedisparos" type="AudioStreamPlayer2D" parent="." unique_id=1390539844]
+stream = ExtResource("1_v5qhk")
+script = ExtResource("2_l4iyh")
