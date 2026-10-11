@@ -19,7 +19,7 @@ func _ready() -> void:
 	pass
 	
 #agrgado_manual con barra espaciadora
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# AGACHARSE
 	if Input.is_action_pressed("agachado"):
 		if !esta_agachado:

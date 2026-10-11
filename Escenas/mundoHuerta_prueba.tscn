@@ -17,6 +17,10 @@
 [ext_resource type="Script" uid="uid://bqachtkgjfo84" path="res://Escenas/topos_derrotados.gd" id="13_3of7u"]
 [ext_resource type="Texture2D" uid="uid://ccneh7irro2js" path="res://Assets/UI_barra_vida_color.png" id="13_d2ylm"]
 [ext_resource type="Script" uid="uid://dh6t6wq1xybdm" path="res://Escenas/barra_vida.gd" id="13_u24l1"]
+[ext_resource type="Texture2D" uid="uid://exb2r2lom2px" path="res://Assets/UIoleada_topos_Config.png" id="14_0page"]
+[ext_resource type="Script" uid="uid://dc5pcttkw3kbr" path="res://Escenas/boton_config.gd" id="15_6ulqk"]
+[ext_resource type="Texture2D" uid="uid://vyfk5cn8xh1p" path="res://Assets/btn_agacharse.png" id="18_y1pf8"]
+[ext_resource type="Texture2D" uid="uid://ckijdg5h5i5dm" path="res://Assets/btn_disparo.png" id="19_0page"]
 
 [node name="MundoHuertaPrueba" type="Node2D" unique_id=757438057]
 metadata/_edit_horizontal_guides_ = [243.0, 40.0]
@@ -137,7 +141,16 @@ metadata/_edit_use_anchors_ = true
 [node name="Topos_derrotados" type="CanvasLayer" parent="." unique_id=1585621118]
 script = ExtResource("13_3of7u")
 
+[node name="BotonConfig" type="TextureButton" parent="Topos_derrotados" unique_id=1681049172]
+offset_left = 1576.0
+offset_top = 39.0
+offset_right = 1968.0
+offset_bottom = 249.0
+texture_normal = ExtResource("14_0page")
+script = ExtResource("15_6ulqk")
+
 [node name="Sprite2D2" type="Sprite2D" parent="Topos_derrotados" unique_id=641792854]
+visible = false
 position = Vector2(1772, 144)
 texture = ExtResource("9_76q2b")
 
@@ -167,6 +180,20 @@ offset_top = -93.0
 offset_right = 223.0
 offset_bottom = 93.0
 texture_progress = ExtResource("13_d2ylm")
+
+[node name="BotonesTactiles" type="CanvasLayer" parent="." unique_id=699162829]
+
+[node name="Agachado" type="TouchScreenButton" parent="BotonesTactiles" unique_id=1699618685]
+position = Vector2(444, 875)
+texture_normal = ExtResource("18_y1pf8")
+action = "agachado"
+visibility_mode = 1
+
+[node name="Disparar" type="TouchScreenButton" parent="BotonesTactiles" unique_id=456012094]
+position = Vector2(693, 875)
+texture_normal = ExtResource("19_0page")
+action = "disparar"
+visibility_mode = 1
 
 [connection signal="button_down" from="BotonesHuerta/ContenedorFade/BotonSemillas" to="BotonesHuerta" method="_on_boton_semillas_button_down"]
 [connection signal="button_down" from="BotonesHuerta/ContenedorFade/BotonRegadera" to="BotonesHuerta" method="_on_boton_regadera_button_down"]
