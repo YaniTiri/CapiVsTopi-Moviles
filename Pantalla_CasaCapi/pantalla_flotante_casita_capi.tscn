@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ti8lylnameoo" path="res://Escenas/assets/Pantalla_Flotante/casita_capi_1920x1080.jpg" id="1_uc6eq"]
 [ext_resource type="Texture2D" uid="uid://b22erma7bb4np" path="res://Escenas/assets/Pantalla_Flotante/Repisa.png" id="2_fxe58"]
 [ext_resource type="Texture2D" uid="uid://ca7fjsiehu621" path="res://Escenas/assets/Pantalla_Flotante/Sillon.png" id="3_5fsmw"]
+[ext_resource type="Texture2D" uid="uid://glnsyud866h2" path="res://Escenas/assets/Pantalla_Flotante/boton_cerrar.png" id="3_hfg0x"]
 [ext_resource type="Texture2D" uid="uid://cd43kbhm1dgls" path="res://Escenas/assets/Pantalla_Flotante/Libros.png" id="4_6vrwm"]
 [ext_resource type="Texture2D" uid="uid://bjy2m6adiupdi" path="res://Escenas/assets/Pantalla_Flotante/maceta.png" id="5_8rbqw"]
 [ext_resource type="Texture2D" uid="uid://hvjfkb04b28q" path="res://Escenas/assets/Pantalla_Flotante/Adorno chimenea.png" id="6_hfg0x"]
@@ -19,8 +20,12 @@ offset_bottom = 40.0
 texture = ExtResource("1_uc6eq")
 
 [node name="Cerrar" type="Button" parent="." unique_id=463170305]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 1739.0
+offset_top = 22.0
+offset_right = 2049.0
+offset_bottom = 340.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("3_hfg0x")
 
 [node name="Cuadricula_Repisa" type="GridContainer" parent="." unique_id=120126332]
 offset_left = 1274.0
