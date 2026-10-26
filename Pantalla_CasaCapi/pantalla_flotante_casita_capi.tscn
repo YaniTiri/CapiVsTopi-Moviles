@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://6esa8ggerhsd"]
 
+[ext_resource type="Script" uid="uid://7qvxj05hf3t0" path="res://Pantalla_CasaCapi/pantalla_flotante_casita_capi.gd" id="1_6vrwm"]
 [ext_resource type="Texture2D" uid="uid://ti8lylnameoo" path="res://Escenas/assets/Pantalla_Flotante/casita_capi_1920x1080.jpg" id="1_uc6eq"]
 [ext_resource type="Texture2D" uid="uid://b22erma7bb4np" path="res://Escenas/assets/Pantalla_Flotante/Repisa.png" id="2_fxe58"]
 [ext_resource type="Texture2D" uid="uid://ca7fjsiehu621" path="res://Escenas/assets/Pantalla_Flotante/Sillon.png" id="3_5fsmw"]
@@ -7,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://bjy2m6adiupdi" path="res://Escenas/assets/Pantalla_Flotante/maceta.png" id="5_8rbqw"]
 [ext_resource type="Texture2D" uid="uid://hvjfkb04b28q" path="res://Escenas/assets/Pantalla_Flotante/Adorno chimenea.png" id="6_hfg0x"]
 [ext_resource type="Texture2D" uid="uid://smt3pvv1vqf8" path="res://Escenas/assets/Pantalla_Flotante/Mesa 1.png" id="7_c1d8p"]
+[ext_resource type="Texture2D" uid="uid://c1li1634slr7n" path="res://Assets/UImonedas.png" id="9_8rbqw"]
 
 [node name="Pantalla_Flotante_CasitaCapi" type="CanvasLayer" unique_id=1689909695]
+script = ExtResource("1_6vrwm")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=507363121]
 offset_right = 40.0
@@ -29,8 +32,9 @@ scale = Vector2(0.4, 0.435)
 [node name="Item_Repisa" type="VBoxContainer" parent="Cuadricula_Repisa" unique_id=1484977523]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Cuadricula_Repisa/Item_Repisa" unique_id=1020638715]
+[node name="Boton_repisa" type="Button" parent="Cuadricula_Repisa/Item_Repisa" unique_id=1020638715]
 layout_mode = 2
+text = "$160"
 
 [node name="Repisa" type="TextureRect" parent="Cuadricula_Repisa/Item_Repisa" unique_id=37920343]
 layout_mode = 2
@@ -46,7 +50,7 @@ scale = Vector2(0.7, 0.7)
 [node name="Item_Sillon" type="VBoxContainer" parent="Cuadricula_Sillon" unique_id=1496615356]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Cuadricula_Sillon/Item_Sillon" unique_id=1515390662]
+[node name="Boton_sillon" type="Button" parent="Cuadricula_Sillon/Item_Sillon" unique_id=1515390662]
 layout_mode = 2
 text = "$100"
 
@@ -64,8 +68,9 @@ scale = Vector2(0.25, 0.25)
 [node name="Item_Libros" type="VBoxContainer" parent="Cuadricula_Libros" unique_id=1010714772]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Cuadricula_Libros/Item_Libros" unique_id=254365048]
+[node name="Boton_libros" type="Button" parent="Cuadricula_Libros/Item_Libros" unique_id=254365048]
 layout_mode = 2
+text = "$150"
 
 [node name="Libros" type="TextureRect" parent="Cuadricula_Libros/Item_Libros" unique_id=1161223146]
 layout_mode = 2
@@ -81,8 +86,9 @@ scale = Vector2(0.7, 0.7)
 [node name="Item_Maceta" type="VBoxContainer" parent="Cuadricula_Maceta" unique_id=1575885023]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Cuadricula_Maceta/Item_Maceta" unique_id=260482905]
+[node name="Boton_Maceta" type="Button" parent="Cuadricula_Maceta/Item_Maceta" unique_id=260482905]
 layout_mode = 2
+text = "$80"
 
 [node name="Maceta" type="TextureRect" parent="Cuadricula_Maceta/Item_Maceta" unique_id=1568095739]
 layout_mode = 2
@@ -98,8 +104,9 @@ scale = Vector2(0.3, 0.3)
 [node name="Item_Adorno_Chimenea" type="VBoxContainer" parent="Cuadricula_Adorno_Chimmenea" unique_id=82491482]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Cuadricula_Adorno_Chimmenea/Item_Adorno_Chimenea" unique_id=627411570]
+[node name="Boton_adornochimenea" type="Button" parent="Cuadricula_Adorno_Chimmenea/Item_Adorno_Chimenea" unique_id=627411570]
 layout_mode = 2
+text = "$130"
 
 [node name="AdornoChimenea" type="TextureRect" parent="Cuadricula_Adorno_Chimmenea/Item_Adorno_Chimenea" unique_id=699209099]
 layout_mode = 2
@@ -115,9 +122,14 @@ scale = Vector2(0.6, 0.6)
 [node name="Item_Mesa1" type="VBoxContainer" parent="Cuadricula_Mesa1" unique_id=1462547279]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Cuadricula_Mesa1/Item_Mesa1" unique_id=1332047400]
+[node name="Boton_mesa1" type="Button" parent="Cuadricula_Mesa1/Item_Mesa1" unique_id=1332047400]
 layout_mode = 2
+text = "$250"
 
 [node name="Mesa1" type="TextureRect" parent="Cuadricula_Mesa1/Item_Mesa1" unique_id=1749583420]
 layout_mode = 2
 texture = ExtResource("7_c1d8p")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=810744199]
+position = Vector2(929, 121)
+texture = ExtResource("9_8rbqw")
