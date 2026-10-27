@@ -10,23 +10,40 @@ var disparo_capi = preload("res://Escenas/disparo_capi.tscn")
 
 var topos_en_area_vision: int = 0
 
-#agregado_variable para disparo manual
+# --- NUEVO: SISTEMA DE CARRILES PARA EL CAPI ---
+var carriles_y: Array[float] = [695.0, 735.0, 775.0] # Los mismos carriles de los topos
+var indice_carril_actual: int = 1                     # Empezamos en el carril del medio (735.0)
+var velocidad_cambio_carril: float = 15.0            # Qué tan rápido se mueve verticalmente
+
+# Agregado variable para disparo manual
 var puede_disparar_manual: bool = true
 var esta_agachado: bool = false
 
 func _ready() -> void:
+	# Posicionamos al Capi en el carril inicial al arrancar
+	global_position.y = carriles_y[indice_carril_actual]
 	animation_player.play("capi_de_pie")
-	pass
-	
-#agrgado_manual con barra espaciadora
+
+
 func _process(delta: float) -> void:
+	# --- NUEVO: MOVIMIENTO ARRIBA Y ABAJO ENTRE CARRILES ---
+	if Input.is_action_just_pressed("arriba"):
+		if indice_carril_actual > 0:
+			indice_carril_actual -= 1
+	elif Input.is_action_just_pressed("abajo"):
+		if indice_carril_actual < carriles_y.size() - 1:
+			indice_carril_actual += 1
+
+	# Movemos suavemente la posición Y del Capi hacia el carril seleccionado
+	var target_y = carriles_y[indice_carril_actual]
+	global_position.y = lerp(global_position.y, target_y, velocidad_cambio_carril * delta)
+
+
 	# AGACHARSE
 	if Input.is_action_pressed("agachado"):
 		if !esta_agachado:
 			esta_agachado = true
 			animation_player.play("capi_agachado")
-
-
 	else:
 		if esta_agachado:
 			esta_agachado = false
@@ -40,27 +57,23 @@ func _process(delta: float) -> void:
 		puede_disparar_manual = true
 
 
-#FUNCION QUE SE ACTIVA CUANDO ALGO ENTRA EL EL AREA DE VISION DEL CAPI:
+# FUNC QUE SE ACTIVA CUANDO ALGO ENTRA EN EL AREA DE VISION DEL CAPI:
 func _on_area_vision_body_entered(body: Node2D) -> void:
-	#print(body.name, " entró en el area!!")
 	if body is Topi:
-		#print("Entra al if detecta al topi y enciende timer")
 		topos_en_area_vision += 1
 		if timer_disparo.is_stopped():
 			timer_disparo.start()
 
 
-#SE EJECUTA CUANDO ALGO SALE DEL AREA DEL PASTO:
+# SE EJECUTA CUANDO ALGO SALE DEL AREA:
 func _on_area_vision_body_exited(body: Node2D) -> void:
 	if body is Topi:
 		topos_en_area_vision -= 1
 		if topos_en_area_vision <= 0:
 			timer_disparo.stop()
-		
 
 
 func _on_timer_disparo_timeout() -> void:
-	#disparar()
 	pass
 	
 func disparar() -> void:
@@ -70,13 +83,11 @@ func disparar() -> void:
 		nuevo_disparo_capi.global_position = global_position
 		get_parent().add_child(nuevo_disparo_capi)
 		await animation_player.animation_finished
-		#print("fin del disparo")
 		$SonidoDisparo.play()
 	animation_player.play("capi_de_pie")
-	
+
 
 func morir() -> void:
-	#print("Capi murió... Game Over!!!")
 	animation_player.play("capi_muerto")
 	await animation_player.animation_finished
 	GameManager.mensaje_derrota = "Perdiste! Capi se quedó sin fuerza para defender la huerta!"
