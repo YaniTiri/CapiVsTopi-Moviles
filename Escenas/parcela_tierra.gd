@@ -1,7 +1,7 @@
 extends Area2D
 class_name ParcelaTierra
 
-var planta_scene = preload("res://Escenas/planta_base.tscn")
+#var planta_scene = preload("res://Escenas/planta_base.tscn")
 var escudo_scene = preload("res://Escenas/escudo.tscn")
 
 var planta_actual: Node2D = null
@@ -14,7 +14,7 @@ func _ready() -> void:
 func sembrar() -> void:
 	#si la parcela esta vacia plantamos la semilla:
 	if planta_actual == null:
-		planta_actual = planta_scene.instantiate()
+		planta_actual = GameManager.planta_del_nivel.instantiate()
 		#va como hijo de la parcela para que crezca en el mismo lugar:
 		add_child(planta_actual)
 	else:
@@ -23,7 +23,7 @@ func sembrar() -> void:
 func sembrar_super_semilla() -> void:
 	#si la parcela esta vacia plantamos la semilla:
 	if planta_actual == null:
-		planta_actual = planta_scene.instantiate()
+		planta_actual = GameManager.planta_del_nivel.instantiate()
 		add_child(planta_actual)
 		#autoriego modo on:
 		if planta_actual.has_method("activar_auto_crecimiento"):

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://1dcjt0rdf4ou"]
+
+[ext_resource type="PackedScene" uid="uid://x0txvriq1014" path="res://Escenas/planta_base.tscn" id="1_3v4f6"]
+[ext_resource type="Texture2D" uid="uid://jbvw1r4en1vm" path="res://Assets/fasesPlantas/uva1.png" id="2_rnqkg"]
+[ext_resource type="Texture2D" uid="uid://de2a2p3h6wiby" path="res://Assets/fasesPlantas/uva2.png" id="3_sscve"]
+[ext_resource type="Texture2D" uid="uid://1dsqlboylxdk" path="res://Assets/fasesPlantas/uvas3.png" id="4_55ork"]
+
+[node name="PlantaUvas" unique_id=2140132250 instance=ExtResource("1_3v4f6")]
+id_fruto = "uvas"
+cantidad_cosecha = 50
+vida = 40
+
+[node name="SpriteBrote" parent="." index="0" unique_id=497856059]
+position = Vector2(0, -25)
+texture = ExtResource("2_rnqkg")
+
+[node name="SpriteCreciendo" parent="." index="1" unique_id=413237952]
+position = Vector2(0, -63)
+texture = ExtResource("3_sscve")
+
+[node name="SpriteCosechable" parent="." index="2" unique_id=1636813033]
+position = Vector2(0, -69)
+texture = ExtResource("4_55ork")

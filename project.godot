@@ -14,7 +14,7 @@ config/name="capi-versus-topi"
 config/version="1.0.0"
 run/main_scene="uid://c4fkc6a76isnf"
 run/disable_stdout=true
-config/features=PackedStringArray("4.7", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://76qtere40d3n"
 
 [autoload]
@@ -27,6 +27,7 @@ SfxDiamantes="*uid://bp11klf5j1cuf"
 SfxPala="*uid://0y82mdhlv11g"
 Disparo="*uid://dt40hvw16gjjl"
 SfxExplocion="*uid://dk7cqihst6u3y"
+InventoryManager="*uid://d0icudafpbx2v"
 
 [display]
 

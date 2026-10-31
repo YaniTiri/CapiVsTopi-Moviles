@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://becqv7461tg6c"]
+
+[ext_resource type="PackedScene" uid="uid://x0txvriq1014" path="res://Escenas/planta_base.tscn" id="1_qs260"]
+[ext_resource type="Texture2D" uid="uid://cnv2b4545ci30" path="res://Assets/fasesPlantas/calabazas1.png" id="2_opfs8"]
+[ext_resource type="Texture2D" uid="uid://bs8gvp7e045hm" path="res://Assets/fasesPlantas/calabazas2.png" id="3_ok7kj"]
+[ext_resource type="Texture2D" uid="uid://dti0jdnpq42al" path="res://Assets/fasesPlantas/calabazas3.png" id="4_76jwv"]
+
+[node name="PlantaCalabaza" unique_id=2140132250 instance=ExtResource("1_qs260")]
+id_fruto = "calabazas"
+cantidad_cosecha = 3
+vida = 50
+
+[node name="SpriteBrote" parent="." index="0" unique_id=497856059]
+position = Vector2(0, -26)
+texture = ExtResource("2_opfs8")
+
+[node name="SpriteCreciendo" parent="." index="1" unique_id=413237952]
+position = Vector2(0, -48)
+texture = ExtResource("3_ok7kj")
+
+[node name="SpriteCosechable" parent="." index="2" unique_id=1636813033]
+position = Vector2(4, -73)
+texture = ExtResource("4_76jwv")

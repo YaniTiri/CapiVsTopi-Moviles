@@ -26,7 +26,7 @@ func _ready() -> void:
 	pass
 	
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
   # --- 1. MOVIMIENTO ARRIBA Y ABAJO ENTRE CARRILES ---
 	if Input.is_action_just_pressed("arriba"):
 		if indice_carril_actual > 0:

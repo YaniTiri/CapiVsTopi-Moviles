@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://chnybsmg0cr8r"]
+
+[ext_resource type="PackedScene" uid="uid://x0txvriq1014" path="res://Escenas/planta_base.tscn" id="1_q1nf0"]
+[ext_resource type="Texture2D" uid="uid://xqdalod75ytt" path="res://Assets/fasesPlantas/moras1.png" id="2_g13i4"]
+[ext_resource type="Texture2D" uid="uid://bv7baw0gbpcp2" path="res://Assets/fasesPlantas/moras2.png" id="3_3t5cp"]
+[ext_resource type="Texture2D" uid="uid://b6cp74gi7kchv" path="res://Assets/fasesPlantas/moras3.png" id="4_5qksn"]
+
+[node name="PlantaMoras" unique_id=2140132250 instance=ExtResource("1_q1nf0")]
+id_fruto = "moras"
+cantidad_cosecha = 6
+vida = 40
+
+[node name="SpriteBrote" parent="." index="0" unique_id=497856059]
+position = Vector2(0, -22)
+texture = ExtResource("2_g13i4")
+
+[node name="SpriteCreciendo" parent="." index="1" unique_id=413237952]
+position = Vector2(0, -41)
+texture = ExtResource("3_3t5cp")
+
+[node name="SpriteCosechable" parent="." index="2" unique_id=1636813033]
+position = Vector2(5, -73)
+texture = ExtResource("4_5qksn")
