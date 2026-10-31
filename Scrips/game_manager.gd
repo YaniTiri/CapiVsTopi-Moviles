@@ -13,6 +13,7 @@ var mensaje_derrota: String = ""
 var semillas_poderosas: int = 0
 var logro_rico_desbloqueado: bool = false
 var nivel_1_completado: bool = false
+var planta_del_nivel: PackedScene  = preload("res://Escenas/planta_base.tscn")
 
 #Diccionario de mejoras para comprar con monedas:
 var mejoras_desbloqueadas: Dictionary ={

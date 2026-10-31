@@ -4,6 +4,7 @@ extends Node2D
 @export var topos_a_derrotar:int 
 @export var tiempo_huerta: float
 @export_file("*.tscn") var siguiente_escena: String
+@export var planta_nivel: PackedScene
 
 @onready var camara: Camera2D = $Camera2D
 @onready var spawner_topos: Marker2D = $SpawnerTopos
@@ -17,6 +18,7 @@ func _ready() -> void:
 	GameManager.topos_muertos_por_nivel = topos_a_derrotar
 	GameManager.actualizar_topos.emit(GameManager.topos_derrotados)
 	GameManager.actualizar_topos.connect(chequear_victoria)
+	GameManager.planta_del_nivel= planta_nivel
 	#if desbloquear_valla: #NUEVO PARA VER LA VALLA
 	#	botones_huerta.get_node("BotonEscudo").show()
 	#else:

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bu3whdy7d7mwu"]
+
+[ext_resource type="PackedScene" uid="uid://x0txvriq1014" path="res://Escenas/planta_base.tscn" id="1_6ktfa"]
+[ext_resource type="Texture2D" uid="uid://b1bcgck0wab61" path="res://Assets/fasesPlantas/arandanos1.png" id="2_84ani"]
+[ext_resource type="Texture2D" uid="uid://bslfk6fiek027" path="res://Assets/fasesPlantas/arandanos2.png" id="3_6rlja"]
+[ext_resource type="Texture2D" uid="uid://dt81up1dss3bt" path="res://Assets/fasesPlantas/arandanos3.png" id="4_l4tvp"]
+
+[node name="PlantaArandanos" unique_id=2140132250 instance=ExtResource("1_6ktfa")]
+id_fruto = "arandanos"
+cantidad_cosecha = 32
+vida = 50
+
+[node name="SpriteBrote" parent="." index="0" unique_id=497856059]
+position = Vector2(0, -43)
+texture = ExtResource("2_84ani")
+
+[node name="SpriteCreciendo" parent="." index="1" unique_id=413237952]
+position = Vector2(3, -68)
+texture = ExtResource("3_6rlja")
+
+[node name="SpriteCosechable" parent="." index="2" unique_id=1636813033]
+position = Vector2(3, -77)
+texture = ExtResource("4_l4tvp")

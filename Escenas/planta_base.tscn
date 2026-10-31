@@ -10,6 +10,7 @@
 
 [node name="PlantaBase" type="Node2D" unique_id=2140132250]
 script = ExtResource("1_002uw")
+id_fruto = "tomates"
 
 [node name="SpriteBrote" type="Sprite2D" parent="." unique_id=497856059]
 position = Vector2(0, -37)

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dsilklp0vssq3"]
+
+[ext_resource type="PackedScene" uid="uid://x0txvriq1014" path="res://Escenas/planta_base.tscn" id="1_c4a23"]
+[ext_resource type="Texture2D" uid="uid://l3ub1fjrgugt" path="res://Assets/fasesPlantas/dragon1.png" id="2_bakrh"]
+[ext_resource type="Texture2D" uid="uid://dhmexjwbxji58" path="res://Assets/fasesPlantas/dragon2.png" id="3_qgp6r"]
+[ext_resource type="Texture2D" uid="uid://b7jnqx1jbk48j" path="res://Assets/fasesPlantas/dragon3.png" id="4_x50lr"]
+
+[node name="PlantaFrutaDragon" unique_id=2140132250 instance=ExtResource("1_c4a23")]
+id_fruto = "fruta_dragon"
+cantidad_cosecha = 6
+vida = 60
+
+[node name="SpriteBrote" parent="." index="0" unique_id=497856059]
+position = Vector2(6, -6)
+texture = ExtResource("2_bakrh")
+
+[node name="SpriteCreciendo" parent="." index="1" unique_id=413237952]
+position = Vector2(0, -71)
+texture = ExtResource("3_qgp6r")
+
+[node name="SpriteCosechable" parent="." index="2" unique_id=1636813033]
+position = Vector2(3, -84)
+texture = ExtResource("4_x50lr")

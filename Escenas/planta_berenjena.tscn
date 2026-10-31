@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ds68w2aubyndo"]
+
+[ext_resource type="PackedScene" uid="uid://x0txvriq1014" path="res://Escenas/planta_base.tscn" id="1_fnyvo"]
+[ext_resource type="Texture2D" uid="uid://fv5t2lkhd2h5" path="res://Assets/fasesPlantas/berenjena1.png" id="2_c5fwi"]
+[ext_resource type="Texture2D" uid="uid://iumfira46jcd" path="res://Assets/fasesPlantas/berenjena2.png" id="3_45n6f"]
+[ext_resource type="Texture2D" uid="uid://kx76lhwlcd8n" path="res://Assets/fasesPlantas/berenjena3.png" id="4_ir6i4"]
+
+[node name="PlantaBerenjena" unique_id=2140132250 instance=ExtResource("1_fnyvo")]
+id_fruto = "berenjenas"
+
+[node name="SpriteBrote" parent="." index="0" unique_id=497856059]
+position = Vector2(4, -42)
+texture = ExtResource("2_c5fwi")
+
+[node name="SpriteCreciendo" parent="." index="1" unique_id=413237952]
+texture = ExtResource("3_45n6f")
+
+[node name="SpriteCosechable" parent="." index="2" unique_id=1636813033]
+position = Vector2(5, -74)
+texture = ExtResource("4_ir6i4")

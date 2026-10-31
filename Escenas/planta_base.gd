@@ -1,8 +1,16 @@
 extends Node2D
 class_name PlantaBase
 
+
+# --- PROPIEDADES CONFIGURABLES POR CADA PLANTA ---
+@export var id_fruto: String = "tomate"
+@export var cantidad_cosecha: int = 4
+
 #Para el gestor de hp:
-var vida: int = 30
+@export var vida: int = 30
+@export var salud: int = 10
+#Para la cantidad de monedas:
+@export var monedas_riego: int = 10
 
 #Para la animacion de la moneda:
 var moneda_animacion = preload("res://Escenas/moneda_anim.tscn")
@@ -47,15 +55,15 @@ func regar() -> void:
 	if fase_actual == FasePlanta.BROTE:
 		fase_actual = FasePlanta.CRECIENDO
 		actualizar_dibujo()
-		GameManager.sumar_monedas_huerta(10)
+		GameManager.sumar_monedas_huerta(monedas_riego)
 		aparecer_moneda()
-		gestor_hp.actual_hp+=10
+		gestor_hp.actual_hp+= salud
 	elif fase_actual == FasePlanta.CRECIENDO:
 		fase_actual = FasePlanta.COSECHABLE
-		GameManager.sumar_monedas_huerta(20)
+		GameManager.sumar_monedas_huerta(monedas_riego*2)
 		actualizar_dibujo()
 		aparecer_moneda()
-		gestor_hp.actual_hp+=20
+		gestor_hp.actual_hp+= salud*2
 		
 func activar_auto_crecimiento() -> void:
 	var timer_auto_riego = Timer.new()
@@ -75,8 +83,9 @@ func _on_timer_auto_riego_timeout(timer: Timer) -> void:
 func cosechar() -> bool:
 	if fase_actual == FasePlanta.COSECHABLE:
 		#print("planta cosechada")
-		GameManager.sumar_monedas_huerta(30)
-		GameManager.tomates_cosechados += 1
+		GameManager.sumar_monedas_huerta(monedas_riego*3)
+		#acá hay que agregar al inventario global nuevo:
+		InventoryManager.agregar_fruto(id_fruto, cantidad_cosecha)
 		aparecer_moneda()
 		return true
 	else:

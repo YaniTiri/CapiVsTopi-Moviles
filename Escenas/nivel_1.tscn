@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dfe5y54evcp8f"]
 
 [ext_resource type="Script" uid="uid://dkoh31j10h606" path="res://Escenas/nivel_1.gd" id="1_gj223"]
+[ext_resource type="PackedScene" uid="uid://x0txvriq1014" path="res://Escenas/planta_base.tscn" id="2_310hg"]
 [ext_resource type="Texture2D" uid="uid://dkrkjq3kkdrtm" path="res://Assets/BG_1.png" id="2_hid1b"]
 [ext_resource type="PackedScene" uid="uid://cxw065dy06eeb" path="res://Escenas/capi.tscn" id="3_os1ql"]
 [ext_resource type="Script" uid="uid://b0tel4kbcad6i" path="res://Escenas/spawner_topos.gd" id="5_lswwr"]
@@ -16,6 +17,7 @@ script = ExtResource("1_gj223")
 topos_a_derrotar = 10
 tiempo_huerta = 20.0
 siguiente_escena = "uid://ck8s6rl8v8bjd"
+planta_nivel = ExtResource("2_310hg")
 
 [node name="Fondo" type="Sprite2D" parent="." unique_id=1144822905]
 position = Vector2(1763, 540)
