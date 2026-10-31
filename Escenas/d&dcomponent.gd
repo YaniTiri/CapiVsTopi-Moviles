@@ -2,24 +2,43 @@ extends Node2D
 
 @export var sprite:Sprite2D
 
-@onready var radio = (sprite.texture.get_size() * sprite.scale).length() /2
+@onready var radio: float = (sprite.texture.get_size() * sprite.scale).length() /2.0
 
-var dragging = false
+var dragging: bool = false
+#guarda el dedo que inicia el drag (-1 es el Mouse)
+var drag_touch_index: int = -1
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if (event.position - sprite.global_position).length() <radio:
-			if not dragging and event.is_pressed():
+	#EVENTOS TACTILES:
+	if event is InputEventScreenTouch:
+		#INICIO del touch:
+		if not dragging and event.pressed:
+			if (event.position - sprite.global_position).length() < radio:
 				dragging = true
-			pass
-			
-		if dragging and not event.is_pressed():
-			dragging = false
-			
-			#para soltar la bolsa, regadera o lo que sea que drageamos
-			owner.soltar_herramienta()
-			pass
+				drag_touch_index = event.index
+		#FIN del touch:
+		elif dragging and not event.pressed and event.index == drag_touch_index:
+			_finalizar_arrastre()
 	
-	if event is InputEventMouseMotion and dragging:
-		owner.position = event.position
+	elif event is InputEventScreenDrag:
+		if dragging and event.index == drag_touch_index:
+			owner.global_position = event.position
+	
+	# EVENTOS DE MOUSE PC:
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if not dragging and event.pressed:
+			if(event.position - sprite.global_position).length() < radio:
+				dragging = true
+				drag_touch_index = -1
 		
+		elif dragging and not event.pressed and drag_touch_index == -1:
+			_finalizar_arrastre()
+	elif event is InputEventMouseMotion and dragging and drag_touch_index == -1:
+		owner.global_position = event.position
+	
+
+func _finalizar_arrastre() -> void:
+	dragging = false
+	drag_touch_index = -1
+	if owner.has_method("soltar_herramienta"):
+		owner.soltar_herramienta()

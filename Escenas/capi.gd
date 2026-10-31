@@ -23,10 +23,11 @@ func _ready() -> void:
 	# Posicionamos al Capi en el carril inicial al arrancar
 	global_position.y = carriles_y[indice_carril_actual]
 	animation_player.play("capi_de_pie")
+	pass
+	
 
-
-func _process(delta: float) -> void:
-	# --- NUEVO: MOVIMIENTO ARRIBA Y ABAJO ENTRE CARRILES ---
+func _process(_delta: float) -> void:
+  # --- 1. MOVIMIENTO ARRIBA Y ABAJO ENTRE CARRILES ---
 	if Input.is_action_just_pressed("arriba"):
 		if indice_carril_actual > 0:
 			indice_carril_actual -= 1
@@ -34,12 +35,11 @@ func _process(delta: float) -> void:
 		if indice_carril_actual < carriles_y.size() - 1:
 			indice_carril_actual += 1
 
-	# Movemos suavemente la posición Y del Capi hacia el carril seleccionado
-	var target_y = carriles_y[indice_carril_actual]
+	# Suavizado de posición vertical con tipado estático
+	var target_y: float = carriles_y[indice_carril_actual]
 	global_position.y = lerp(global_position.y, target_y, velocidad_cambio_carril * delta)
-
-
-	# AGACHARSE
+  
+	# --- 2. AGACHARSE ---
 	if Input.is_action_pressed("agachado"):
 		if !esta_agachado:
 			esta_agachado = true
@@ -48,7 +48,8 @@ func _process(delta: float) -> void:
 		if esta_agachado:
 			esta_agachado = false
 			animation_player.play("capi_de_pie")
-
+  
+  # --- 3. DISPARAR ---
 	if Input.is_action_just_pressed("disparar") and puede_disparar_manual:
 		puede_disparar_manual = false
 		disparar()
