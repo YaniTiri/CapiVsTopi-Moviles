@@ -2,21 +2,22 @@
 
 [ext_resource type="Script" uid="uid://vddnyrf4wr5g" path="res://menu/menu_setting.gd" id="1_150ja"]
 [ext_resource type="Texture2D" uid="uid://cyxnlrrq4bbgt" path="res://botones/command.png" id="2_bjt0j"]
-[ext_resource type="Texture2D" uid="uid://cxoaxt31ugy5g" path="res://botones/imagen_setting.png" id="2_nllm7"]
 [ext_resource type="Texture2D" uid="uid://dfuqjg8n4uru" path="res://botones/command_oscuro.png" id="3_gh4fg"]
-[ext_resource type="Texture2D" uid="uid://blxvauircd4hg" path="res://botones/back.png" id="4_gh4fg"]
-[ext_resource type="Texture2D" uid="uid://dpppbmqu3mmv7" path="res://botones/back_oscuro.png" id="5_150ja"]
+[ext_resource type="Texture2D" uid="uid://bmcgtwgfl5ehd" path="res://botones/ig.png" id="4_o4djb"]
 [ext_resource type="Texture2D" uid="uid://c6spp53yyduss" path="res://botones/exit.png" id="7_5e6l0"]
 [ext_resource type="Texture2D" uid="uid://bucj5oyxyjs2e" path="res://botones/exit_oscuro.png" id="8_q2nsx"]
 [ext_resource type="Texture2D" uid="uid://cym40cuiubf0r" path="res://botones/volumen.png" id="9_pjtjr"]
 [ext_resource type="Texture2D" uid="uid://bcb38upnqdcay" path="res://botones/volumen_oscuro.png" id="10_di6ss"]
-[ext_resource type="AudioStream" uid="uid://cco0oaklf7f7r" path="res://musica_sfx/musica_menu.mp3" id="11_013ub"]
+[ext_resource type="AudioStream" uid="uid://j71n03kcx83x" path="res://musica_sfx/musica_menu.mp3" id="11_013ub"]
 
 [node name="menu_setting" type="Control" unique_id=283260163]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -3.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_150ja")
@@ -28,7 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_nllm7")
+expand_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=500506217]
 layout_mode = 1
@@ -54,39 +55,39 @@ texture_hover = ExtResource("3_gh4fg")
 
 [node name="back_to_menu" type="TextureButton" parent="." unique_id=271358371]
 layout_mode = 0
-offset_left = 841.0
-offset_top = 605.0
-offset_right = 1091.0
-offset_bottom = 733.0
-scale = Vector2(1.1620167, 1.1915963)
-texture_normal = ExtResource("4_gh4fg")
-texture_hover = ExtResource("5_150ja")
+offset_left = 1011.0
+offset_top = 786.0
+offset_right = 1511.0
+offset_bottom = 1286.0
+scale = Vector2(0.2, 0.205)
+texture_normal = ExtResource("4_o4djb")
 
 [node name="exit" type="TextureButton" parent="." unique_id=672074407]
 layout_mode = 0
-offset_left = 860.0
-offset_top = 771.0
-offset_right = 1110.0
-offset_bottom = 892.0
+offset_left = 866.0
+offset_top = 573.0
+offset_right = 1116.0
+offset_bottom = 694.0
 texture_normal = ExtResource("7_5e6l0")
 texture_hover = ExtResource("8_q2nsx")
 
 [node name="volumen" type="TextureButton" parent="." unique_id=1904877019]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -126.99994
-offset_top = -100.00003
-offset_right = 123.0
-offset_bottom = 31.0
+anchors_preset = -1
+anchor_left = 0.88958335
+anchor_top = 0.1166667
+anchor_right = 0.88958335
+anchor_bottom = 0.1166667
+offset_left = -146.0
+offset_top = -89.00003
+offset_right = 104.0
+offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.218214, 1.2451682)
 texture_normal = ExtResource("9_pjtjr")
 texture_hover = ExtResource("10_di6ss")
+metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2029469136]
 stream = ExtResource("11_013ub")

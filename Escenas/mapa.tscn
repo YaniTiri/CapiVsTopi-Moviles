@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://dbp6pbuchacce"]
 
-[ext_resource type="Texture2D" uid="uid://dynp632ipqor8" path="res://botones/mapa.png" id="1_2jh14"]
 [ext_resource type="Script" uid="uid://dqb12idu83mfj" path="res://Escenas/mapa.gd" id="1_5d3jg"]
-[ext_resource type="Texture2D" uid="uid://civwb3ts6jvyr" path="res://botones/boton_mapa.png" id="2_70f7c"]
-[ext_resource type="Texture2D" uid="uid://blxvauircd4hg" path="res://botones/back.png" id="3_lrjei"]
-[ext_resource type="Texture2D" uid="uid://dpppbmqu3mmv7" path="res://botones/back_oscuro.png" id="4_5d3jg"]
-[ext_resource type="AudioStream" uid="uid://cco0oaklf7f7r" path="res://musica_sfx/musica_menu.mp3" id="6_nrv1i"]
+[ext_resource type="Texture2D" uid="uid://fuilqw0qg0h7" path="res://botones/mapa_menu_2.jpeg" id="2_n0mq6"]
+[ext_resource type="Texture2D" uid="uid://csa5hw12yvl1t" path="res://botones/cartelito.png" id="3_b7v2v"]
+[ext_resource type="Texture2D" uid="uid://dqalokn8frgkl" path="res://botones/back.png" id="3_lrjei"]
+[ext_resource type="Texture2D" uid="uid://dm5cdcqm4b4tv" path="res://botones/back_oscuro.png" id="4_5d3jg"]
+[ext_resource type="AudioStream" uid="uid://j71n03kcx83x" path="res://musica_sfx/musica_menu.mp3" id="6_nrv1i"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rnwnl"]
+load_path = "res://.godot/imported/cartelito.png-5d137d9478821d2389a9ed7fda4b1d25.ctex"
 
 [node name="mapa" type="Control" unique_id=746319862]
 layout_mode = 3
@@ -23,7 +26,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_2jh14")
+texture = ExtResource("2_n0mq6")
+expand_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=265076306]
 layout_mode = 1
@@ -35,96 +39,275 @@ grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
 [node name="boton_1" type="TextureButton" parent="." unique_id=768270387]
-layout_mode = 0
-offset_left = 151.0
-offset_top = 477.0
-offset_right = 310.0
-offset_bottom = 577.0
-texture_normal = ExtResource("2_70f7c")
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24557291
+anchor_top = 0.36898148
+anchor_right = 0.24557291
+anchor_bottom = 0.36898148
+offset_left = -334.5
+offset_top = -186.5
+offset_right = 334.5
+offset_bottom = 186.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = SubResource("CompressedTexture2D_rnwnl")
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
 
 [node name="1" type="Label" parent="boton_1" unique_id=110220406]
-layout_mode = 0
-offset_left = 68.0
-offset_top = 23.0
-offset_right = 80.0
-offset_bottom = 46.0
-scale = Vector2(2.6264796, 1.7287904)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4783259
+anchor_top = 0.2506702
+anchor_right = 0.49033642
+anchor_bottom = 0.25103906
+offset_left = -6.0
+offset_top = -11.5
+offset_right = -4.035034
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6.077, 4)
 text = "1"
+metadata/_edit_use_anchors_ = true
 
 [node name="boton_2" type="TextureButton" parent="." unique_id=1809773652]
-layout_mode = 0
-offset_left = 545.0
-offset_top = 626.0
-offset_right = 704.0
-offset_bottom = 726.0
-texture_normal = ExtResource("2_70f7c")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3434896
+anchor_top = 0.4587963
+anchor_right = 0.3434896
+anchor_bottom = 0.4587963
+offset_left = -334.5
+offset_top = -186.5
+offset_right = 334.5
+offset_bottom = 186.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_b7v2v")
+metadata/_edit_use_anchors_ = true
 
 [node name="2" type="Label" parent="boton_2" unique_id=362612901]
-layout_mode = 0
-offset_left = 71.0
-offset_top = 20.0
-offset_right = 86.0
-offset_bottom = 43.0
-scale = Vector2(1.9793187, 1.9400845)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48729447
+anchor_top = 0.22520107
+anchor_right = 0.48729447
+anchor_bottom = 0.22520107
+offset_right = 15.0
+offset_bottom = 23.0
+scale = Vector2(4.081, 4)
 text = "2"
+metadata/_edit_use_anchors_ = true
 
 [node name="boton_3" type="TextureButton" parent="." unique_id=589155527]
 layout_mode = 0
-offset_left = 1179.0
-offset_top = 758.0
-offset_right = 1338.0
-offset_bottom = 858.0
-texture_normal = ExtResource("2_70f7c")
+offset_left = 127.0
+offset_top = 404.0
+offset_right = 796.0
+offset_bottom = 777.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_b7v2v")
 
 [node name="Label" type="Label" parent="boton_3" unique_id=1088715345]
-layout_mode = 0
-offset_left = 75.0
-offset_top = 26.0
-offset_right = 92.0
-offset_bottom = 49.0
-scale = Vector2(1.6872656, 1.4528813)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48729447
+anchor_top = 0.21983914
+anchor_right = 0.48729447
+anchor_bottom = 0.21983914
+offset_right = 17.0
+offset_bottom = 23.0
+scale = Vector2(4.644, 4)
 text = "?"
+metadata/_edit_use_anchors_ = true
 
 [node name="boton_4" type="TextureButton" parent="." unique_id=712228726]
 layout_mode = 0
-offset_left = 1573.0
-offset_top = 661.0
-offset_right = 1732.0
-offset_bottom = 761.0
-texture_normal = ExtResource("2_70f7c")
+offset_left = 326.0
+offset_top = 502.0
+offset_right = 995.0
+offset_bottom = 875.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_b7v2v")
 
 [node name="Label" type="Label" parent="boton_4" unique_id=1776084780]
-layout_mode = 0
-offset_left = 76.0
-offset_top = 24.0
-offset_right = 91.0
-offset_bottom = 47.0
-scale = Vector2(1.4361622, 1.5548465)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.490284
+anchor_top = 0.2144772
+anchor_right = 0.490284
+anchor_bottom = 0.21447721
+offset_right = 15.0
+offset_bottom = 23.0
+scale = Vector2(3.694, 4)
 text = "?"
+metadata/_edit_use_anchors_ = true
 
 [node name="boton_5" type="TextureButton" parent="." unique_id=533583984]
 layout_mode = 0
-offset_left = 1441.0
-offset_top = 294.0
-offset_right = 1600.0
-offset_bottom = 394.0
-texture_normal = ExtResource("2_70f7c")
+offset_left = 134.0
+offset_top = 600.0
+offset_right = 803.0
+offset_bottom = 973.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_b7v2v")
 
 [node name="Label" type="Label" parent="boton_5" unique_id=936995554]
-layout_mode = 0
-offset_left = 74.0
-offset_top = 24.0
-offset_right = 88.0
-offset_bottom = 47.0
-scale = Vector2(1.9027815, 1.6404693)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4813154
+anchor_top = 0.20375334
+anchor_right = 0.4813154
+anchor_bottom = 0.20375335
+offset_right = 14.0
+offset_bottom = 23.0
+scale = Vector2(4.642, 4)
 text = "?"
+metadata/_edit_use_anchors_ = true
+
+[node name="boton_6" type="TextureButton" parent="." unique_id=1101932780]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 880.0
+offset_right = 860.0
+offset_bottom = 1253.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_b7v2v")
+
+[node name="Label" type="Label" parent="boton_6" unique_id=2103307060]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4813154
+anchor_top = 0.20375334
+anchor_right = 0.4813154
+anchor_bottom = 0.20375335
+offset_right = 14.0
+offset_bottom = 23.0
+scale = Vector2(4.642, 4)
+text = "?"
+metadata/_edit_use_anchors_ = true
+
+[node name="boton_7" type="TextureButton" parent="." unique_id=1528170856]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 748.0
+offset_right = 1119.0
+offset_bottom = 1121.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_b7v2v")
+
+[node name="Label" type="Label" parent="boton_7" unique_id=861077213]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4813154
+anchor_top = 0.20375334
+anchor_right = 0.4813154
+anchor_bottom = 0.20375335
+offset_right = 14.0
+offset_bottom = 23.0
+scale = Vector2(4.642, 4)
+text = "?"
+metadata/_edit_use_anchors_ = true
+
+[node name="boton_8" type="TextureButton" parent="." unique_id=1113069992]
+layout_mode = 0
+offset_left = 876.0
+offset_top = 704.0
+offset_right = 1545.0
+offset_bottom = 1077.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_b7v2v")
+
+[node name="Label" type="Label" parent="boton_8" unique_id=1500326054]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4813154
+anchor_top = 0.20375334
+anchor_right = 0.4813154
+anchor_bottom = 0.20375335
+offset_right = 14.0
+offset_bottom = 23.0
+scale = Vector2(4.642, 4)
+text = "?"
+metadata/_edit_use_anchors_ = true
+
+[node name="boton_9" type="TextureButton" parent="." unique_id=2133606276]
+layout_mode = 0
+offset_left = 1094.0
+offset_top = 375.0
+offset_right = 1763.0
+offset_bottom = 748.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_b7v2v")
+
+[node name="Label" type="Label" parent="boton_9" unique_id=24352461]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4813154
+anchor_top = 0.20375334
+anchor_right = 0.4813154
+anchor_bottom = 0.20375335
+offset_right = 14.0
+offset_bottom = 23.0
+scale = Vector2(4.642, 4)
+text = "?"
+metadata/_edit_use_anchors_ = true
+
+[node name="boton_10" type="TextureButton" parent="." unique_id=117359736]
+layout_mode = 0
+offset_left = 1410.0
+offset_top = 479.0
+offset_right = 2079.0
+offset_bottom = 852.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_b7v2v")
+
+[node name="Label" type="Label" parent="boton_10" unique_id=1617467069]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4813154
+anchor_top = 0.20375334
+anchor_right = 0.4813154
+anchor_bottom = 0.20375335
+offset_right = 14.0
+offset_bottom = 23.0
+scale = Vector2(4.642, 4)
+text = "?"
+metadata/_edit_use_anchors_ = true
+
+[node name="boton_11" type="TextureButton" parent="." unique_id=147485776]
+layout_mode = 0
+offset_left = 1561.0
+offset_top = 720.0
+offset_right = 2230.0
+offset_bottom = 1093.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_b7v2v")
+
+[node name="Label" type="Label" parent="boton_11" unique_id=1739789510]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4813154
+anchor_top = 0.20375334
+anchor_right = 0.4813154
+anchor_bottom = 0.20375335
+offset_right = 14.0
+offset_bottom = 23.0
+scale = Vector2(4.642, 4)
+text = "?"
+metadata/_edit_use_anchors_ = true
 
 [node name="back" type="TextureButton" parent="." unique_id=1527189366]
 layout_mode = 0
-offset_left = 90.0
-offset_top = 877.0
-offset_right = 340.0
-offset_bottom = 1005.0
+offset_left = 1668.0
+offset_top = 4.0
+offset_right = 1918.0
+offset_bottom = 132.0
 texture_normal = ExtResource("3_lrjei")
 texture_hover = ExtResource("4_5d3jg")
 
