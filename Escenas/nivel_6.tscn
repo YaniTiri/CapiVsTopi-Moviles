@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dkoh31j10h606" path="res://Escenas/nivel_1.gd" id="1_tniu4"]
 [ext_resource type="PackedScene" uid="uid://cx1i2vrrdn6q" path="res://Escenas/planta_frutillas.tscn" id="2_tniu4"]
-[ext_resource type="Texture2D" uid="uid://dkrkjq3kkdrtm" path="res://Assets/BG_1.png" id="3_kwh0i"]
+[ext_resource type="Texture2D" uid="uid://caiw011b4d8fu" path="res://Assets/BG_4.jpg" id="3_tniu4"]
 [ext_resource type="PackedScene" uid="uid://cxw065dy06eeb" path="res://Escenas/capi.tscn" id="4_nxtkn"]
 [ext_resource type="Script" uid="uid://b0tel4kbcad6i" path="res://Escenas/spawner_topos.gd" id="5_ca4qs"]
 [ext_resource type="PackedScene" uid="uid://duenmj8ivln36" path="res://Escenas/mundoHuerta_prueba.tscn" id="6_qh55e"]
@@ -21,7 +21,7 @@ planta_nivel = ExtResource("2_tniu4")
 
 [node name="Fondo" type="Sprite2D" parent="." unique_id=1144822905]
 position = Vector2(1763, 540)
-texture = ExtResource("3_kwh0i")
+texture = ExtResource("3_tniu4")
 metadata/_edit_lock_ = true
 
 [node name="Capi" parent="." unique_id=402564657 instance=ExtResource("4_nxtkn")]

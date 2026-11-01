@@ -2,7 +2,7 @@ extends HerramientaHuertaBase
 
 func aplicar_herramienta(parcela: ParcelaTierra) -> void:
 	parcela.cosechar()
-	GameManager.registrar_cosecha_tomate()
+	#GameManager.registrar_cosecha_tomate()
 	
 func puede_aplicarse_en(parcela: ParcelaTierra) -> bool:
 	if parcela.planta_actual != null and parcela.planta_actual is PlantaBase:
