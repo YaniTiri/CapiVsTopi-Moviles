@@ -42,16 +42,19 @@ func agregar_fruto(id_fruto: String, cantidad: int) -> void:
 	else:
 		frutos_cosechados[id_fruto] = cantidad
 		fruto_actualizado.emit(id_fruto, cantidad)
+	print("Fruto cosechado (", id_fruto, " +", cantidad, "). Estado actual: ", frutos_cosechados)
 
 
 func obtener_cantidad_fruto(id_fruto: String) -> int:
 	return frutos_cosechados.get(id_fruto, 0)
 
 
-func consumir_fruto(id_fruto: String, cantidad: int) -> bool:
+func cocinar_fruto(id_fruto: String, cantidad: int) -> bool:
 	var actual: int = obtener_cantidad_fruto(id_fruto)
 	if actual >= cantidad:
 		frutos_cosechados[id_fruto] -= cantidad
 		fruto_actualizado.emit(id_fruto, frutos_cosechados[id_fruto])
+		print("Fruto consumido (", id_fruto, " -", cantidad, "). Estado actual: ", frutos_cosechados)
 		return true
+	print("Intento fallido de cocina: ", id_fruto, " insuficientes (tienes ", actual, ", requiere ", cantidad, ")")
 	return false

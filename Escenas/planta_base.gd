@@ -3,7 +3,7 @@ class_name PlantaBase
 
 
 # --- PROPIEDADES CONFIGURABLES POR CADA PLANTA ---
-@export var id_fruto: String = "tomate"
+@export var id_fruto: String = "tomates"
 @export var cantidad_cosecha: int = 4
 
 #Para el gestor de hp:
