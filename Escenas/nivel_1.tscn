@@ -14,8 +14,8 @@
 
 [node name="Nivel1" type="Node2D" unique_id=2084416755]
 script = ExtResource("1_gj223")
-topos_a_derrotar = 10
-tiempo_huerta = 20.0
+topos_a_derrotar = 7
+tiempo_huerta = 30.0
 siguiente_escena = "uid://ck8s6rl8v8bjd"
 planta_nivel = ExtResource("2_310hg")
 
