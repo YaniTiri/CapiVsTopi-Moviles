@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d35dl37dc4nx4"]
+
+[ext_resource type="AudioStream" uid="uid://borbf2l2lf2d0" path="res://musica_sfx/musica de living.mp3" id="1_441q0"]
+
+[node name="audiomanager" type="Node" unique_id=424099617]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=820768182]
+stream = ExtResource("1_441q0")

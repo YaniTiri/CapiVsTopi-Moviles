@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ckbsuw6ajx1cp"]
+
+[ext_resource type="AudioStream" uid="uid://beybsfylqle2d" path="res://musica_sfx/musica de cocina.mp3" id="1_x4qky"]
+
+[node name="musica de fondo de la conina" type="Node2D" unique_id=112470122]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1001235651]
+stream = ExtResource("1_x4qky")

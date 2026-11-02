@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cxcel0qqxpe8i"]
+
+[ext_resource type="AudioStream" uid="uid://b1ogee14rq5hi" path="res://sfx/interfaz de hacer mermelada.wav" id="1_j0ii7"]
+[ext_resource type="Script" uid="uid://dcaeixbxpasj" path="res://Scrips/interfaz_de_terminar_la_mermelada.gd" id="1_sg1wb"]
+
+[node name="audiomanager" type="Node" unique_id=1914993060]
+script = ExtResource("1_sg1wb")
+
+[node name="interfaz" type="AudioStreamPlayer2D" parent="." unique_id=622196411]
+stream = ExtResource("1_j0ii7")
