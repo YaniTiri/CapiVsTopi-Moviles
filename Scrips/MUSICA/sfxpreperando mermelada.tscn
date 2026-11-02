@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dbls7kh4t23f6"]
+
+[ext_resource type="Script" uid="uid://bxeuu1o5b6fsg" path="res://Scrips/sfxpreperando_mermelada.gd" id="1_eyvv7"]
+[ext_resource type="AudioStream" uid="uid://cplhngt3es85t" path="res://sfx/preparando mermelada.wav" id="2_06ntv"]
+
+[node name="audiomanger" type="Node" unique_id=850189902]
+script = ExtResource("1_eyvv7")
+
+[node name="preperandomermelada" type="AudioStreamPlayer2D" parent="." unique_id=11233784]
+stream = ExtResource("2_06ntv")

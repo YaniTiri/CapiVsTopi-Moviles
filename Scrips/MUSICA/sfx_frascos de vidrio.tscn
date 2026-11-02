@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://y0tulxvbkn3u"]
+
+[ext_resource type="Script" uid="uid://dgu1yojc5yhtv" path="res://Scrips/sfx_frascos_de_vidrio.gd" id="1_v6ngv"]
+[ext_resource type="AudioStream" uid="uid://b33px7hahripw" path="res://sfx/sonido de los frascos de vidrio.wav" id="2_0142w"]
+
+[node name="audiomanager" type="Node" unique_id=1780545098]
+script = ExtResource("1_v6ngv")
+
+[node name="frascosdevidrios" type="AudioStreamPlayer2D" parent="." unique_id=253273111]
+stream = ExtResource("2_0142w")

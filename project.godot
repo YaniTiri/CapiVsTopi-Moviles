@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="capi-versus-topi"
+config/name="capi-versus-topi moviles"
 config/version="1.0.0"
 run/main_scene="uid://c4fkc6a76isnf"
 config/features=PackedStringArray("4.6", "Forward Plus")
@@ -27,6 +27,8 @@ SfxDiamantes="*uid://bp11klf5j1cuf"
 SfxPala="*uid://0y82mdhlv11g"
 Disparo="*uid://dt40hvw16gjjl"
 SfxExplocion="*uid://dk7cqihst6u3y"
+SfxFrascosDeVidrio="*uid://y0tulxvbkn3u"
+InterfazDeTerminarLaMermelada="*uid://cxcel0qqxpe8i"
 
 [display]
 
