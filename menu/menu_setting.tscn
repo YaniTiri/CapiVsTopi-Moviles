@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://bqcw4f2i8nust"]
 
 [ext_resource type="Script" uid="uid://vddnyrf4wr5g" path="res://menu/menu_setting.gd" id="1_150ja"]
-[ext_resource type="Texture2D" uid="uid://cyxnlrrq4bbgt" path="res://botones/command.png" id="2_bjt0j"]
-[ext_resource type="Texture2D" uid="uid://dfuqjg8n4uru" path="res://botones/command_oscuro.png" id="3_gh4fg"]
+[ext_resource type="Texture2D" uid="uid://dt8fu1qgg87rn" path="res://botones/fondo_setting.png" id="2_mubxc"]
 [ext_resource type="Texture2D" uid="uid://bmcgtwgfl5ehd" path="res://botones/ig.png" id="4_o4djb"]
 [ext_resource type="Texture2D" uid="uid://c6spp53yyduss" path="res://botones/exit.png" id="7_5e6l0"]
+[ext_resource type="Texture2D" uid="uid://br6i60rhas048" path="res://botones/boton_salir_x.png" id="7_8nokc"]
 [ext_resource type="Texture2D" uid="uid://bucj5oyxyjs2e" path="res://botones/exit_oscuro.png" id="8_q2nsx"]
-[ext_resource type="Texture2D" uid="uid://cym40cuiubf0r" path="res://botones/volumen.png" id="9_pjtjr"]
-[ext_resource type="Texture2D" uid="uid://bcb38upnqdcay" path="res://botones/volumen_oscuro.png" id="10_di6ss"]
 [ext_resource type="AudioStream" uid="uid://j71n03kcx83x" path="res://musica_sfx/musica_menu.mp3" id="11_013ub"]
 
 [node name="menu_setting" type="Control" unique_id=283260163]
@@ -24,75 +22,121 @@ script = ExtResource("1_150ja")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=841259669]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.0375
+anchor_top = 0.099813424
+anchor_right = 1.0375
+anchor_bottom = 1.0998135
+offset_left = 354.0
+offset_top = -237.0
+offset_right = -187.25
+offset_bottom = 355.99988
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_mubxc")
 expand_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=500506217]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.02601242, 0.022619145, 0.014888321, 0.79607844)
-
-[node name="command" type="TextureButton" parent="." unique_id=1134563011]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -101.0
-offset_top = 309.0
-offset_right = 149.0
-offset_bottom = 430.0
-grow_horizontal = 2
-texture_normal = ExtResource("2_bjt0j")
-texture_hover = ExtResource("3_gh4fg")
-
-[node name="back_to_menu" type="TextureButton" parent="." unique_id=271358371]
+[node name="IgLink" type="TextureButton" parent="." unique_id=271358371]
 layout_mode = 0
-offset_left = 1011.0
-offset_top = 786.0
-offset_right = 1511.0
-offset_bottom = 1286.0
-scale = Vector2(0.2, 0.205)
+offset_left = 1116.0
+offset_top = 806.00006
+offset_right = 1616.0
+offset_bottom = 1306.0
+scale = Vector2(0.3, 0.308)
 texture_normal = ExtResource("4_o4djb")
 
 [node name="exit" type="TextureButton" parent="." unique_id=672074407]
-layout_mode = 0
-offset_left = 866.0
-offset_top = 573.0
-offset_right = 1116.0
-offset_bottom = 694.0
-texture_normal = ExtResource("7_5e6l0")
-texture_hover = ExtResource("8_q2nsx")
-
-[node name="volumen" type="TextureButton" parent="." unique_id=1904877019]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.88958335
-anchor_top = 0.1166667
-anchor_right = 0.88958335
-anchor_bottom = 0.1166667
-offset_left = -146.0
-offset_top = -89.00003
-offset_right = 104.0
-offset_bottom = 42.0
+anchor_left = 0.5140625
+anchor_top = 0.6347948
+anchor_right = 0.5140625
+anchor_bottom = 0.6347948
+offset_left = -125.0
+offset_top = -60.5
+offset_right = 125.0
+offset_bottom = 60.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.218214, 1.2451682)
-texture_normal = ExtResource("9_pjtjr")
-texture_hover = ExtResource("10_di6ss")
+texture_normal = ExtResource("7_5e6l0")
+texture_hover = ExtResource("8_q2nsx")
 metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2029469136]
 stream = ExtResource("11_013ub")
 autoplay = true
 
-[connection signal="pressed" from="command" to="." method="_on_command_pressed"]
-[connection signal="pressed" from="back_to_menu" to="." method="_on_back_to_menu_pressed"]
+[node name="Musica" type="HSlider" parent="." unique_id=569301619]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.353125
+anchor_top = 0.36380598
+anchor_right = 0.51484376
+anchor_bottom = 0.37593284
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+max_value = 1.0
+step = 0.05
+metadata/_edit_use_anchors_ = true
+
+[node name="SFX" type="HSlider" parent="." unique_id=957846476]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.49010417
+anchor_top = 0.43283582
+anchor_right = 0.5046875
+anchor_bottom = 0.43283582
+offset_left = -270.0
+offset_top = -8.0
+offset_right = 22.5
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+max_value = 1.0
+step = 0.05
+metadata/_edit_use_anchors_ = true
+
+[node name="SacarMenu" type="TextureButton" parent="." unique_id=1806920525]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.78333336
+anchor_top = 0.28824627
+anchor_right = 0.78333336
+anchor_bottom = 0.28824627
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("7_8nokc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Master" type="HSlider" parent="." unique_id=534140316]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35208333
+anchor_top = 0.3125
+anchor_right = 0.5130208
+anchor_bottom = 0.3125
+offset_right = 8.0
+offset_bottom = 16.0
+scale = Vector2(2, 2)
+max_value = 1.0
+step = 0.05
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="IgLink" to="." method="_on_ig_link_pressed"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[connection signal="value_changed" from="Musica" to="." method="_on_musica_value_changed"]
+[connection signal="value_changed" from="SFX" to="." method="_on_sfx_value_changed"]
+[connection signal="pressed" from="SacarMenu" to="." method="_on_sacar_menu_pressed"]
+[connection signal="value_changed" from="Master" to="." method="_on_master_value_changed"]
