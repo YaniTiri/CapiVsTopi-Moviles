@@ -1,18 +1,14 @@
 [gd_scene format=3 uid="uid://oss0oifa7j6s"]
 
 [ext_resource type="Script" uid="uid://cadeuv7wflcnx" path="res://menu/munu.gd" id="1_0u7e5"]
-[ext_resource type="Texture2D" uid="uid://dfk8wpytue2q2" path="res://botones/portada (1).jpeg" id="2_ycqwp"]
-[ext_resource type="Texture2D" uid="uid://ceoxhwdytghfy" path="res://botones/play.png" id="3_a5t2v"]
-[ext_resource type="Texture2D" uid="uid://dyx6jq2y7lp3e" path="res://botones/credit.png" id="3_rig5r"]
-[ext_resource type="Texture2D" uid="uid://ce1pofx1i2wew" path="res://botones/play_oscuro.png" id="4_3ai2p"]
-[ext_resource type="Texture2D" uid="uid://kvb6ujkxrmqf" path="res://botones/credit_oscuro.png" id="4_kj0dl"]
-[ext_resource type="Texture2D" uid="uid://cd2f5sm4uqxc6" path="res://botones/setting.png" id="7_pjlxb"]
-[ext_resource type="Texture2D" uid="uid://b7s66q53mpfik" path="res://botones/setting_oscuro.png" id="8_0u7e5"]
+[ext_resource type="Texture2D" uid="uid://cd0p3tyjnpx33" path="res://botones/fondo_menu.jpeg" id="2_3ai2p"]
+[ext_resource type="Texture2D" uid="uid://cfifrupy31l7g" path="res://botones/tienda_mermelada_sin.png" id="6_kj0dl"]
+[ext_resource type="Texture2D" uid="uid://bfjjj1dq23x13" path="res://botones/casa_capy_sin.png" id="6_rig5r"]
+[ext_resource type="Texture2D" uid="uid://fpf46hattefd" path="res://botones/tienda_herramientas_sin.png" id="7_pjlxb"]
+[ext_resource type="Texture2D" uid="uid://cm8wcy2dvjrkm" path="res://botones/elaboracion_sin.png" id="8_0u7e5"]
 [ext_resource type="AudioStream" uid="uid://j71n03kcx83x" path="res://musica_sfx/musica_menu.mp3" id="9_rph6x"]
 [ext_resource type="Texture2D" uid="uid://c6spp53yyduss" path="res://botones/exit.png" id="9_ycqwp"]
 [ext_resource type="Texture2D" uid="uid://bucj5oyxyjs2e" path="res://botones/exit_oscuro.png" id="10_rph6x"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0u7e5"]
 
 [node name="munu" type="Control" unique_id=1393137266]
 layout_mode = 3
@@ -39,61 +35,94 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ycqwp")
-
-[node name="credit" type="TextureButton" parent="." unique_id=1261683250]
-custom_minimum_size = Vector2(50, 20)
-layout_mode = 0
-offset_left = 845.0
-offset_top = 549.0
-offset_right = 1106.0
-offset_bottom = 699.0
-size_flags_horizontal = 4
-texture_normal = ExtResource("3_rig5r")
-texture_pressed = ExtResource("4_kj0dl")
-texture_hover = ExtResource("4_kj0dl")
-ignore_texture_size = true
-
-[node name="play" type="TextureButton" parent="." unique_id=676534836]
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 0
-offset_left = 838.0
-offset_top = 319.0
-offset_right = 1138.0
-offset_bottom = 469.0
-size_flags_horizontal = 4
-texture_normal = ExtResource("3_a5t2v")
-texture_pressed = SubResource("CompressedTexture2D_0u7e5")
-texture_hover = ExtResource("4_3ai2p")
-
-[node name="setting" type="TextureButton" parent="." unique_id=1640929549]
-custom_minimum_size = Vector2(50, 20)
-layout_mode = 0
-offset_left = 835.0
-offset_top = 433.0
-offset_right = 1075.0
-offset_bottom = 550.0
-size_flags_horizontal = 4
-texture_normal = ExtResource("7_pjlxb")
-texture_pressed = ExtResource("8_0u7e5")
-texture_hover = ExtResource("8_0u7e5")
-ignore_texture_size = true
+texture = ExtResource("2_3ai2p")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="exit" type="TextureButton" parent="." unique_id=1470968287]
 layout_mode = 0
-offset_left = 861.0
-offset_top = 674.0
-offset_right = 1111.0
-offset_bottom = 795.0
+offset_left = 21.0
+offset_top = 951.99994
+offset_right = 271.0
+offset_bottom = 1073.0
 scale = Vector2(0.8400025, 0.92000246)
 texture_normal = ExtResource("9_ycqwp")
 texture_hover = ExtResource("10_rph6x")
+
+[node name="Casa" type="TextureButton" parent="." unique_id=2020463523]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.040364582
+anchor_top = 0.18009259
+anchor_right = 0.040364582
+anchor_bottom = 0.18009259
+offset_left = -334.5
+offset_top = -186.5
+offset_right = 334.5
+offset_bottom = 186.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.8, 1.8)
+texture_normal = ExtResource("6_rig5r")
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="TiendaMermelada" type="TextureButton" parent="." unique_id=1805417723]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.79557294
+anchor_top = 0.6958333
+anchor_right = 0.79557294
+anchor_bottom = 0.6958333
+offset_left = -334.5
+offset_top = -186.5
+offset_right = 334.5
+offset_bottom = 186.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("6_kj0dl")
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="TiendaHerramientas" type="TextureButton" parent="." unique_id=100260767]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6372396
+anchor_top = 0.5578704
+anchor_right = 0.6372396
+anchor_bottom = 0.5578704
+offset_left = -334.5
+offset_top = -186.5
+offset_right = 334.5
+offset_bottom = 186.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("7_pjlxb")
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="Elaboracion" type="TextureButton" parent="." unique_id=973056510]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.36171874
+anchor_top = 0.18842593
+anchor_right = 0.36171874
+anchor_bottom = 0.18842593
+offset_left = -334.5
+offset_top = -186.5
+offset_right = 334.5
+offset_bottom = 186.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.8, 1.8)
+texture_normal = ExtResource("8_0u7e5")
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1229014585]
 stream = ExtResource("9_rph6x")
 autoplay = true
 
-[connection signal="pressed" from="credit" to="." method="_on_texture_button_3_pressed"]
-[connection signal="pressed" from="play" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="setting" to="." method="_on_setting_pressed"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
