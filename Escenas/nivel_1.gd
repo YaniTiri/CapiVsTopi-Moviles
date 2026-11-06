@@ -68,7 +68,7 @@ func fase_huerta (tiempo: float) -> void:
 	await get_tree().create_timer(tiempo).timeout
 
 func fase_oleada (tiempo: float) -> void:
-	mostrar_mensaje("Cuidado que vienen los topos!\n Disparales con la tecla SPACE")
+	mostrar_mensaje("Cuidado que vienen los topos!")
 	spawner_topos.get_node("TimerOleada").start()	
 	await get_tree().create_timer(tiempo).timeout
 	
