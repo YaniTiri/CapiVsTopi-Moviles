@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://c6spp53yyduss" path="res://botones/exit.png" id="7_5e6l0"]
 [ext_resource type="Texture2D" uid="uid://br6i60rhas048" path="res://botones/boton_salir_x.png" id="7_8nokc"]
 [ext_resource type="Texture2D" uid="uid://bucj5oyxyjs2e" path="res://botones/exit_oscuro.png" id="8_q2nsx"]
-[ext_resource type="AudioStream" uid="uid://j71n03kcx83x" path="res://musica_sfx/musica_menu.mp3" id="11_013ub"]
 
 [node name="menu_setting" type="Control" unique_id=283260163]
 layout_mode = 3
@@ -63,17 +62,13 @@ texture_normal = ExtResource("7_5e6l0")
 texture_hover = ExtResource("8_q2nsx")
 metadata/_edit_use_anchors_ = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2029469136]
-stream = ExtResource("11_013ub")
-autoplay = true
-
 [node name="Musica" type="HSlider" parent="." unique_id=569301619]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.353125
-anchor_top = 0.36380598
-anchor_right = 0.51484376
-anchor_bottom = 0.37593284
+anchor_left = 0.3515625
+anchor_top = 0.36660448
+anchor_right = 0.5122396
+anchor_bottom = 0.37873134
 offset_left = -4.0
 offset_top = -8.0
 offset_right = 4.0
@@ -90,7 +85,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.49010417
 anchor_top = 0.43283582
-anchor_right = 0.5046875
+anchor_right = 0.5026042
 anchor_bottom = 0.43283582
 offset_left = -270.0
 offset_top = -8.0
@@ -123,9 +118,9 @@ metadata/_edit_use_anchors_ = true
 [node name="Master" type="HSlider" parent="." unique_id=534140316]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.35208333
+anchor_left = 0.34947917
 anchor_top = 0.3125
-anchor_right = 0.5130208
+anchor_right = 0.5104166
 anchor_bottom = 0.3125
 offset_right = 8.0
 offset_bottom = 16.0
