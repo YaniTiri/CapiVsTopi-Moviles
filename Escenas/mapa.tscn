@@ -303,13 +303,21 @@ text = "?"
 metadata/_edit_use_anchors_ = true
 
 [node name="back" type="TextureButton" parent="." unique_id=1527189366]
-layout_mode = 0
-offset_left = 1668.0
-offset_top = 4.0
-offset_right = 1918.0
-offset_bottom = 132.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.93385416
+anchor_top = 0.05925926
+anchor_right = 0.93385416
+anchor_bottom = 0.05925926
+offset_left = -125.0
+offset_top = -64.0
+offset_right = 125.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("3_lrjei")
 texture_hover = ExtResource("4_5d3jg")
+metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1304236898]
 stream = ExtResource("6_nrv1i")
