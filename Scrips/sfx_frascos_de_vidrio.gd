@@ -1,3 +1,3 @@
 extends Node
 
-@onready var frascosdevidrios =$sonidodelosfrascosdevidrio
+@onready var frascosdevidrios =$frascosdevidrios
