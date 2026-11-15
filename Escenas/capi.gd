@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 			animation_player.play("capi_de_pie")
   
   # --- 3. DISPARAR ---
-	if Input.is_action_just_pressed("disparar") and puede_disparar_manual:
+	if Input.is_action_pressed("disparar") and puede_disparar_manual:
 		puede_disparar_manual = false
 		disparar()
 		# Esperar 0.5 segundos antes de poder disparar otra vez
