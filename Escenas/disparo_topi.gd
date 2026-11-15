@@ -15,13 +15,19 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
 	
 func _on_area_entered(area: Area2D) -> void:
+	#si es el topi pasa de largo
 	if area.get_parent() is Topi:
 		return
-		
+	#Si es el capi agachado pasa de largo
+	var entidad = area.get_parent()
+	if entidad is Capi and entidad.esta_agachado:
+		return	
+	
 	if area.has_method ("recibir_danio"):
 			area.recibir_danio(danio)
 			queue_free()
 			return
+			
 	if area.get_parent() != null and area.get_parent().has_method("recibir_danio"):
 		area.get_parent().recibir_danio(danio)
 		queue_free()

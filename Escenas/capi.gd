@@ -11,7 +11,7 @@ var disparo_capi = preload("res://Escenas/disparo_capi.tscn")
 var topos_en_area_vision: int = 0
 
 # --- NUEVO: SISTEMA DE CARRILES PARA EL CAPI ---
-var carriles_y: Array[float] = [695.0, 735.0, 775.0] # Los mismos carriles de los topos
+var carriles_y: Array[float] = [581.0, 621.0, 657.0] # Los mismos carriles de los topos
 var indice_carril_actual: int = 1                     # Empezamos en el carril del medio (735.0)
 var velocidad_cambio_carril: float = 15.0            # Qué tan rápido se mueve verticalmente
 

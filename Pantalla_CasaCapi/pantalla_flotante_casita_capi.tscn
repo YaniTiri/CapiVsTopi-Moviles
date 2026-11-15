@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bjy2m6adiupdi" path="res://Escenas/assets/Pantalla_Flotante/maceta.png" id="5_8rbqw"]
 [ext_resource type="Texture2D" uid="uid://hvjfkb04b28q" path="res://Escenas/assets/Pantalla_Flotante/Adorno chimenea.png" id="6_hfg0x"]
 [ext_resource type="Texture2D" uid="uid://smt3pvv1vqf8" path="res://Escenas/assets/Pantalla_Flotante/Mesa 1.png" id="7_c1d8p"]
-[ext_resource type="Texture2D" uid="uid://c1li1634slr7n" path="res://Assets/UImonedas.png" id="9_8rbqw"]
+[ext_resource type="Texture2D" uid="uid://6uy0bhc3s0qc" path="res://Assets/UImonedas.png" id="9_8rbqw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlpon"]
 texture = ExtResource("3_c1d8p")

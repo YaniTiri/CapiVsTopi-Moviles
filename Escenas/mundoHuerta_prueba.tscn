@@ -21,6 +21,12 @@
 [ext_resource type="Script" uid="uid://dc5pcttkw3kbr" path="res://Escenas/boton_config.gd" id="15_6ulqk"]
 [ext_resource type="Texture2D" uid="uid://vyfk5cn8xh1p" path="res://Assets/btn_agacharse.png" id="18_y1pf8"]
 [ext_resource type="Texture2D" uid="uid://ckijdg5h5i5dm" path="res://Assets/btn_disparo.png" id="19_0page"]
+[ext_resource type="Texture2D" uid="uid://b7i3qvta84a7b" path="res://Assets/btn_agacharse_hover.png" id="21_mrcjj"]
+[ext_resource type="Texture2D" uid="uid://bgqod5w6sctu8" path="res://Assets/btn_flecha_up.png" id="22_11a6t"]
+[ext_resource type="Texture2D" uid="uid://cha8gx4y58kfr" path="res://Assets/btn_disparo_hover.png" id="23_cocda"]
+[ext_resource type="Texture2D" uid="uid://lwlpqpk2xvvh" path="res://Assets/btn_flecha_up_hover.png" id="23_pwcan"]
+[ext_resource type="Texture2D" uid="uid://wqv5yi7bxkbh" path="res://Assets/btn_flecha_down.png" id="24_mrcjj"]
+[ext_resource type="Texture2D" uid="uid://2pcscydb61gf" path="res://Assets/btn_flecha_down_hover.png" id="25_cocda"]
 
 [node name="MundoHuertaPrueba" type="Node2D" unique_id=757438057]
 metadata/_edit_horizontal_guides_ = [243.0, 40.0]
@@ -186,13 +192,29 @@ texture_progress = ExtResource("13_d2ylm")
 [node name="Agachado" type="TouchScreenButton" parent="BotonesTactiles" unique_id=1699618685]
 position = Vector2(444, 875)
 texture_normal = ExtResource("18_y1pf8")
+texture_pressed = ExtResource("21_mrcjj")
 action = "agachado"
 visibility_mode = 1
 
 [node name="Disparar" type="TouchScreenButton" parent="BotonesTactiles" unique_id=456012094]
 position = Vector2(693, 875)
 texture_normal = ExtResource("19_0page")
+texture_pressed = ExtResource("23_cocda")
 action = "disparar"
+visibility_mode = 1
+
+[node name="SubirCarril" type="TouchScreenButton" parent="BotonesTactiles" unique_id=587852305]
+position = Vector2(935, 875)
+texture_normal = ExtResource("22_11a6t")
+texture_pressed = ExtResource("23_pwcan")
+action = "arriba"
+visibility_mode = 1
+
+[node name="BajarCarril" type="TouchScreenButton" parent="BotonesTactiles" unique_id=1788347214]
+position = Vector2(1047, 875)
+texture_normal = ExtResource("24_mrcjj")
+texture_pressed = ExtResource("25_cocda")
+action = "abajo"
 visibility_mode = 1
 
 [connection signal="button_down" from="BotonesHuerta/ContenedorFade/BotonSemillas" to="BotonesHuerta" method="_on_boton_semillas_button_down"]
