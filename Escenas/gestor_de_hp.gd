@@ -27,6 +27,11 @@ func _ready() -> void:
 
 		
 func recibir_danio (dmg: int) -> void:
+		var padre = get_parent()
+		if padre is Capi and padre.esta_agachado:
+			print("¡Capi esquivó el proyectil!")
+			return  # Sale de la función: no baja vida ni emite señales
+		
 		actual_hp -= dmg
 		impacto_recibido.emit (actual_hp)
 		print(get_parent().name, " recibió daño. vida restante : " , actual_hp)

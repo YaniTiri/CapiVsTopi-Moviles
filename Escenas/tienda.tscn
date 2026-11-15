@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://e4alhvcp1qsc" path="res://Escenas/puntaje_prov.gd" id="1_50q1o"]
 [ext_resource type="Script" uid="uid://jt2ywyx36jo" path="res://Escenas/tienda.gd" id="1_a2w3w"]
 [ext_resource type="Texture2D" uid="uid://6uy0bhc3s0qc" path="res://Assets/UImonedas.png" id="2_7flnv"]
-[ext_resource type="Texture2D" uid="uid://dkrkjq3kkdrtm" path="res://Assets/BG_1.png" id="2_v3u34"]
+[ext_resource type="Texture2D" uid="uid://cnae6c816j6kq" path="res://Assets/tienda_sinLetras_niBotones.jpg" id="2_lvtqr"]
 [ext_resource type="FontFile" uid="uid://dt26tqnbpbtxh" path="res://tipografias/LuckiestGuy-Regular.ttf" id="3_a2w3w"]
 [ext_resource type="LabelSettings" uid="uid://ycdmqo4jip2u" path="res://tipografias/ui_settings.tres" id="4_lpnfq"]
 [ext_resource type="Texture2D" uid="uid://cxuwudpudawuu" path="res://Assets/botonCanion.png" id="7_56r47"]
@@ -18,9 +18,9 @@ metadata/_edit_horizontal_guides_ = [614.0, 661.0, 362.0]
 
 [node name="Fondo" type="Sprite2D" parent="." unique_id=355394023]
 modulate = Color(0.28, 0.28, 0.28, 0.4627451)
-position = Vector2(1763, 540)
-texture = ExtResource("2_v3u34")
-metadata/_edit_lock_ = true
+position = Vector2(1022, 547)
+scale = Vector2(0.75999874, 0.75999874)
+texture = ExtResource("2_lvtqr")
 
 [node name="Puntaje_prov" type="CanvasLayer" parent="." unique_id=2036794977]
 script = ExtResource("1_50q1o")

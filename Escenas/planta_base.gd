@@ -84,6 +84,7 @@ func cosechar() -> bool:
 	if fase_actual == FasePlanta.COSECHABLE:
 		#print("planta cosechada")
 		GameManager.sumar_monedas_huerta(monedas_riego*3)
+		GameManager.frutos_cosechados_en_nivel +=cantidad_cosecha
 		#acá hay que agregar al inventario global nuevo:
 		InventoryManager.agregar_fruto(id_fruto, cantidad_cosecha)
 		aparecer_moneda()

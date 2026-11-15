@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://dqb12idu83mfj" path="res://Escenas/mapa.gd" id="1_5d3jg"]
 [ext_resource type="Texture2D" uid="uid://fuilqw0qg0h7" path="res://botones/mapa_menu_2.jpeg" id="2_n0mq6"]
 [ext_resource type="Texture2D" uid="uid://csa5hw12yvl1t" path="res://botones/cartelito.png" id="3_b7v2v"]
-[ext_resource type="Texture2D" uid="uid://dqalokn8frgkl" path="res://botones/back.png" id="3_lrjei"]
-[ext_resource type="Texture2D" uid="uid://dm5cdcqm4b4tv" path="res://botones/back_oscuro.png" id="4_5d3jg"]
-[ext_resource type="AudioStream" uid="uid://j71n03kcx83x" path="res://musica_sfx/musica_menu.mp3" id="6_nrv1i"]
+[ext_resource type="Texture2D" uid="uid://blxvauircd4hg" path="res://botones/back.png" id="3_lrjei"]
+[ext_resource type="Texture2D" uid="uid://dpppbmqu3mmv7" path="res://botones/back_oscuro.png" id="4_5d3jg"]
+[ext_resource type="AudioStream" uid="uid://cco0oaklf7f7r" path="res://musica_sfx/musica_menu.mp3" id="6_nrv1i"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rnwnl"]
 load_path = "res://.godot/imported/cartelito.png-5d137d9478821d2389a9ed7fda4b1d25.ctex"

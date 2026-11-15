@@ -2,6 +2,8 @@ extends Node
 
 # Señales para actualizar la UI (HUD / Cocina / Tienda)
 signal fruto_actualizado(id_fruto: String, nueva_cantidad: int)
+signal tickets_actualizados(nueva_cantidad: int)
+signal decoracion_desbloqueada(id_decoracion: String)
 
 #diccionario para los frutos cosechados de cada nivel:
 var frutos_cosechados: Dictionary ={
@@ -58,3 +60,48 @@ func cocinar_fruto(id_fruto: String, cantidad: int) -> bool:
 		return true
 	print("Intento fallido de cocina: ", id_fruto, " insuficientes (tienes ", actual, ", requiere ", cantidad, ")")
 	return false
+
+#--------------------------
+#TICKETS PARA DECORACIONES:
+#--------------------------
+var tickets_decoracion: int = 0
+
+func agregar_tickets(cantidad: int) -> void:
+	tickets_decoracion += cantidad
+	tickets_actualizados.emit(tickets_decoracion)
+	print("Tickets agregados (+", cantidad, "). Total: ", tickets_decoracion)
+
+func usar_tickets(cantidad: int) -> bool:
+	if tickets_decoracion >= cantidad:
+		tickets_decoracion -= cantidad
+		tickets_actualizados.emit(tickets_decoracion)
+		print("Tickets usados (-", cantidad, "). Restan: ", tickets_decoracion)
+		return true
+	print("Tickets insuficientes (tienes ", tickets_decoracion, ", y requiere ", cantidad, ")")
+	return false
+	
+#-------------
+#DECORACIONES:
+#-------------
+var decoraciones_desbloqueadas: Dictionary = {
+	"repisa_casa": false,
+	"sillon_casa": false,
+	"libros_casa": false,
+	"macetas_casa": false,
+	"chimenea_casa": false,
+	"mesa_casa": false
+}
+
+func desbloquear_decoracion(id_decoracion: String) -> void:
+	if decoraciones_desbloqueadas.has(id_decoracion):
+		decoraciones_desbloqueadas[id_decoracion] = true
+		decoracion_desbloqueada.emit(id_decoracion)
+		print("¡Decoración desbloqueada!: ", id_decoracion)
+	else:
+		decoraciones_desbloqueadas[id_decoracion] = true
+		decoracion_desbloqueada.emit(id_decoracion)
+		print("Nueva decoración registrada: ", id_decoracion)
+
+
+func esta_decoracion_desbloqueada(id_decoracion: String) -> bool:
+	return decoraciones_desbloqueadas.get(id_decoracion, false)
