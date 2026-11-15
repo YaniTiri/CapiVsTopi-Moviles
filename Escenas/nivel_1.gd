@@ -106,7 +106,7 @@ func chequear_victoria (topos_muertos: int) -> void:
 		spawner_topos.eliminar_topos_restantes.emit()
 		#eliminar balas:
 		get_tree().call_group("balas", "queue_free")
-		get_tree().call_group("balas topi", "queue_free")
+		get_tree().call_group("balas_topi", "queue_free")
 		#AVISA AL GAME MANAGER CUAL ES EL SIGUIENTE NIVEL:
 		GameManager.ruta_siguiente_nivel = siguiente_escena
 		GameManager.nivel_1_completado = true
