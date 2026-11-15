@@ -1,6 +1,7 @@
 extends Node2D
 
 #NIVELES GENERAL
+@export var numero_de_nivel: int = 1
 @export var topos_a_derrotar:int 
 @export var tiempo_huerta: float
 @export_file("*.tscn") var siguiente_escena: String
@@ -100,10 +101,26 @@ func chequear_victoria (topos_muertos: int) -> void:
 		var timer = spawner_topos.get_node("TimerOleada")
 		if timer != null:
 			timer.stop()
+		#LIMPIAR NIVEL:
 		#señal para eliminar topos restantes:
 		spawner_topos.eliminar_topos_restantes.emit()
+		#eliminar balas:
+		get_tree().call_group("balas", "queue_free")
+		get_tree().call_group("balas topi", "queue_free")
 		#AVISA AL GAME MANAGER CUAL ES EL SIGUIENTE NIVEL:
 		GameManager.ruta_siguiente_nivel = siguiente_escena
 		GameManager.nivel_1_completado = true
+		
+		#registrar nivel avanzado
+		GameManager.nivel_actual = numero_de_nivel
+		GameManager.registrar_nivel_ganado(numero_de_nivel)
+			
+		#POP-UP desbloqueos
+		# Si este nivel tiene DESBLOQUEOS, mostramos el POPUP y esperamos a que se cierre:
+		var texto_premio = GameManager.obtener_premio_nivel(numero_de_nivel)
+		if texto_premio != "":
+			var popup: PopupDesbloqueo = GameManager.mostrar_desbloqueo("¡NUEVO DESBLOQUEO!", texto_premio)
+			await popup.cerrado
+	
 		#SALTAR A PANTALLA DE VICTORIA:
 		get_tree().call_deferred("change_scene_to_file", "res://Escenas/nivel_1_completado.tscn")

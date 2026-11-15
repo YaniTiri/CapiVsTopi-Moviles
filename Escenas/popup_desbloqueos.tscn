@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://br747il1xc0h6"]
+
+[ext_resource type="Script" uid="uid://cqdsysi5h4bsb" path="res://Escenas/popup_desbloqueos.gd" id="1_td08n"]
+[ext_resource type="LabelSettings" uid="uid://npsdjyyktbs6" path="res://tipografias/mensajes_label_settings.tres" id="1_vfslt"]
+
+[node name="PopupDesbloqueos" type="CanvasLayer" unique_id=1309888546]
+layer = 10
+script = ExtResource("1_td08n")
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=714331162]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.43, 0.43, 0.43, 0.61960787)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Fondo" unique_id=1869740365]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Mensaje" type="Label" parent="Fondo/VBoxContainer" unique_id=950032796]
+layout_mode = 2
+text = "¡NUEVO DESBLOQUEO!"
+label_settings = ExtResource("1_vfslt")
+horizontal_alignment = 1
+
+[node name="SegunNivel" type="Label" parent="Fondo/VBoxContainer" unique_id=630357710]
+layout_mode = 2
+text = "SEMILLAS NUEVAS!"
+label_settings = ExtResource("1_vfslt")
+horizontal_alignment = 1
+
+[node name="Continuar" type="Label" parent="Fondo/VBoxContainer" unique_id=223883188]
+layout_mode = 2
+text = "TOCA AQUI PARA CONTINUAR"
+label_settings = ExtResource("1_vfslt")
+horizontal_alignment = 1

@@ -1,6 +1,8 @@
 extends Node
 
 #VARIABLES GLOBALES
+var nivel_actual: int = 1
+var nivel_maximo_desbloqueado: int = 1
 var topos_derrotados: int = 0
 var monedas: int = 0
 var plantas_destruidas: int = 0
@@ -14,6 +16,8 @@ var semillas_poderosas: int = 0
 var logro_rico_desbloqueado: bool = false
 var nivel_1_completado: bool = false
 var planta_del_nivel: PackedScene  = preload("res://Escenas/planta_base.tscn")
+var escena_popup: PackedScene = preload("res://Escenas/popup_desbloqueos.tscn")
+var frutos_cosechados_en_nivel: int = 0
 
 #Diccionario de mejoras para comprar con monedas:
 var mejoras_desbloqueadas: Dictionary ={
@@ -27,6 +31,8 @@ var precios_mejoras: Dictionary={
 	"semillas_poderosas": 100, # inventar planta nueva
 	"herramienta_escudo": 100 # inventar arma nueva
 }
+
+
 
 #SEÑALES
 signal actualizar_vida_capi(hp_actual: int)
@@ -46,7 +52,26 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pausa"):
 		pausar_o_despausar_global()
 
+
+#Diccionario frutos por nivel:
+var nombre_fruto_por_nivel: Dictionary = {
+	1: "Tomates",
+	2: "Berenjenas",
+	3: "Ajíes",
+	4: "Uvas",
+	5: "Maíces",
+	6: "Frutillas",
+	7: "Moras",
+	8: "Calabazas",
+	9: "Arándanos",
+	10: "Cerezas",
+	11: "Frutas Dragón"
+}
+
 #Aca vienen las funciones
+func obtener_nombre_fruto_nivel() -> String:
+	return nombre_fruto_por_nivel.get(nivel_actual, "Frutos")
+
 func estamos_en_algun_menu() -> bool:
 	var escena_actual = get_tree().current_scene
 	
@@ -104,6 +129,7 @@ func resetear_para_nuevo_nivel():
 	topos_derrotados = 0
 	plantas_destruidas = 0
 	topos_muertos_por_nivel = 0
+	frutos_cosechados_en_nivel = 0
 	#####
 	#Chequear si suman las semillas que me quedaron y se pueden comprar más
 	#semillas_poderosas = 0
@@ -133,6 +159,7 @@ func limpiar_mejoras() -> void:
 		
 func registrar_cosecha_tomate() -> void:
 	tomates_cosechados += 1
+	frutos_cosechados_en_nivel += 1
 	if tomates_cosechados >= 20 and not logro_20_plantas_desbloqueado:
 		logro_20_plantas_desbloqueado = true
 
@@ -141,3 +168,36 @@ func obtener_total_logros() -> int:
 	if logro_20_plantas_desbloqueado: cuenta += 1
 	if logro_rico_desbloqueado: cuenta += 1
 	return cuenta
+
+#-----------------------------------------------
+#FUNCION PARA REGISTRAR NIVELES AVANZADOS:
+#-----------------------------------------------
+func registrar_nivel_ganado(numero_nivel: int) -> void:
+	if numero_nivel >= nivel_maximo_desbloqueado:
+		nivel_maximo_desbloqueado = numero_nivel + 1
+		print("¡Nuevo nivel máximo desbloqueado!: ", nivel_maximo_desbloqueado)
+
+#-----------------------------------------------
+#FUNCION PARA MOSTRAR EL POP UP DE DESBLOQUEOS:
+#-----------------------------------------------
+func obtener_premio_nivel(nivel: int) -> String:
+	var premios: Dictionary = {
+		1: "¡Desbloqueaste las semillas de Berenjena y nuevas recetas en la cocina!",
+		2: "¡Desbloqueaste las semillas de Ají!",
+		3: "¡Desbloqueaste una nueva mejora en la Tienda!",
+		4: "¡Desbloqueaste las semillas de Choclo!",
+		5: "¡Desbloqueaste nuevas decoraciones para la Casita!",
+		6: "¡Desbloqueaste las semillas de Lechuga!",
+		7: "¡Desbloqueaste mejoras avanzadas en la Tienda!",
+		8: "¡Desbloqueaste las semillas de Frutilla!",
+		9: "¡Desbloqueaste recetas especiales de cocina!",
+		10: "¡Desbloqueaste las semillas doradas!",
+		11: "¡Felicitaciones! ¡Completaste todos los niveles de la huerta!"
+	}
+	return premios.get(nivel, "")
+	
+func mostrar_desbloqueo(titulo: String, mensaje: String) -> PopupDesbloqueo:
+	var popup = escena_popup.instantiate()
+	get_tree().current_scene.add_child(popup)
+	popup.configurar(titulo, mensaje)
+	return popup

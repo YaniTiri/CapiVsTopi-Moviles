@@ -63,7 +63,7 @@ offset_bottom = 718.0
 scale = Vector2(2.993141, 2.2181349)
 text = "0000"
 
-[node name="tomates" type="Label" parent="." unique_id=2131646163]
+[node name="frutos" type="Label" parent="." unique_id=2131646163]
 layout_mode = 0
 offset_left = 960.0
 offset_top = 690.00006
