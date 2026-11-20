@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://dsg2ubp63wdhw"]
+
+[ext_resource type="Texture2D" uid="uid://dv4x68gagruy8" path="res://botones/fondo_cocina.jpeg" id="1_jqnxx"]
+[ext_resource type="Script" uid="uid://clkarnri8txg" path="res://Escenas/cocina.gd" id="1_s4ijj"]
+[ext_resource type="Texture2D" uid="uid://cb2co5mkffq8t" path="res://botones/aceite.png" id="2_b5anw"]
+[ext_resource type="Script" uid="uid://d3v40fx6qc7a4" path="res://Scrips/IngredienteArrastrable.gd" id="3_b5anw"]
+[ext_resource type="Script" uid="uid://cupu1t68gdvaa" path="res://Scrips/ZonaOlla.gd" id="3_h561l"]
+[ext_resource type="Texture2D" uid="uid://3bw7uee4usba" path="res://botones/frasco.png" id="4_s4ijj"]
+[ext_resource type="Texture2D" uid="uid://crjwyv0oiccd8" path="res://botones/agua.png" id="6_b5anw"]
+[ext_resource type="Texture2D" uid="uid://3sfodvo57f6c" path="res://botones/azucar_sin.png" id="6_xrhem"]
+[ext_resource type="Script" uid="uid://bylbmhsdrggta" path="res://Escenas/CarruselIngredientes.gd" id="8_h561l"]
+[ext_resource type="Texture2D" uid="uid://cpq8ssq4nx638" path="res://botones/redondel_resultado (2).png" id="9_v7c8n"]
+[ext_resource type="Texture2D" uid="uid://dqalokn8frgkl" path="res://botones/back.png" id="10_v7c8n"]
+
+[node name="Control" type="Control" unique_id=1766700942]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s4ijj")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1172137259]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jqnxx")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1675330843]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="aceite" type="TextureButton" parent="VBoxContainer" unique_id=74032775]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture_normal = ExtResource("2_b5anw")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("3_b5anw")
+id_item = "aceite"
+
+[node name="frasco" type="TextureButton" parent="VBoxContainer" unique_id=90593031]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture_normal = ExtResource("4_s4ijj")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("3_b5anw")
+id_item = "frasco"
+
+[node name="azucar" type="TextureButton" parent="VBoxContainer" unique_id=1838746252]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture_normal = ExtResource("6_xrhem")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("3_b5anw")
+
+[node name="agua" type="TextureButton" parent="VBoxContainer" unique_id=109514666]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture_normal = ExtResource("6_b5anw")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("3_b5anw")
+id_item = "agua"
+
+[node name="CarruselFrutas" type="HBoxContainer" parent="VBoxContainer" unique_id=279024382]
+layout_mode = 2
+alignment = 1
+script = ExtResource("8_h561l")
+
+[node name="BtnIzq" type="TextureButton" parent="VBoxContainer/CarruselFrutas" unique_id=1429514891]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BtnActual" type="TextureButton" parent="VBoxContainer/CarruselFrutas" unique_id=1892061728]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("3_b5anw")
+
+[node name="BtnDer" type="TextureButton" parent="VBoxContainer/CarruselFrutas" unique_id=1460448372]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ZonaOlla" type="Control" parent="." unique_id=809256623]
+layout_mode = 1
+anchor_left = 0.16979167
+anchor_top = 0.44074073
+anchor_right = 0.3359375
+anchor_bottom = 0.7416667
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_h561l")
+metadata/_edit_use_anchors_ = true
+
+[node name="IndicadorListo" type="Label" parent="ZonaOlla" unique_id=254061829]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53899723
+anchor_top = -0.31643835
+anchor_right = 0.53899723
+anchor_bottom = -0.31643835
+offset_left = -36.5
+offset_top = -15.5
+offset_right = 36.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextoTimer" type="Label" parent="ZonaOlla" unique_id=46698093]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4907799
+anchor_top = -0.16575347
+anchor_right = 0.5649303
+anchor_bottom = -0.16575347
+offset_left = -3.1900024
+offset_top = -15.5
+offset_right = 3.1900024
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=79130907]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 951.0
+offset_right = 256.0
+offset_bottom = 1079.0
+texture_normal = ExtResource("10_v7c8n")
+
+[node name="BadgeCantidad" type="TextureRect" parent="." unique_id=1589499536]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 614.0
+offset_right = 201.0
+offset_bottom = 664.0
+mouse_filter = 2
+texture = ExtResource("9_v7c8n")
+stretch_mode = 5
+
+[node name="LabelCantidad" type="Label" parent="BadgeCantidad" unique_id=2022784484]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -11.5
+offset_right = 14.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

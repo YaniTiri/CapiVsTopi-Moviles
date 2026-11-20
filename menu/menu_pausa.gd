@@ -19,11 +19,6 @@ func _on_play_pressed() -> void:
 	GameManager.pausar_o_despausar_global()
 
 
-#func _on_setting_pressed() -> void:
-#	GameManager.pausar_o_despausar_global()
-#	get_tree().change_scene_to_file("res://menu/menu_setting.tscn")
-
-
 func _on_back_menu_pressed() -> void:
 	GameManager.pausar_o_despausar_global()
-	get_tree().change_scene_to_file("res://Escenas/mapa.tscn")
+	get_tree().change_scene_to_file("res://menu/munu.tscn")
