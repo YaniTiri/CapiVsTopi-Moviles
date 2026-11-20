@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dsg2ubp63wdhw"]
 
 [ext_resource type="Texture2D" uid="uid://dv4x68gagruy8" path="res://botones/fondo_cocina.jpeg" id="1_jqnxx"]
+[ext_resource type="Script" uid="uid://clkarnri8txg" path="res://Escenas/cocina.gd" id="1_s4ijj"]
 [ext_resource type="Texture2D" uid="uid://cb2co5mkffq8t" path="res://botones/aceite.png" id="2_b5anw"]
 [ext_resource type="Script" uid="uid://d3v40fx6qc7a4" path="res://Scrips/IngredienteArrastrable.gd" id="3_b5anw"]
 [ext_resource type="Script" uid="uid://cupu1t68gdvaa" path="res://Scrips/ZonaOlla.gd" id="3_h561l"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://crjwyv0oiccd8" path="res://botones/agua.png" id="6_b5anw"]
 [ext_resource type="Texture2D" uid="uid://3sfodvo57f6c" path="res://botones/azucar_sin.png" id="6_xrhem"]
 [ext_resource type="Script" uid="uid://bylbmhsdrggta" path="res://Escenas/CarruselIngredientes.gd" id="8_h561l"]
+[ext_resource type="Texture2D" uid="uid://dqalokn8frgkl" path="res://botones/back.png" id="10_v7c8n"]
 
 [node name="Control" type="Control" unique_id=1766700942]
 layout_mode = 3
@@ -16,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_s4ijj")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1172137259]
 layout_mode = 1
@@ -139,3 +142,13 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 22
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=79130907]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 951.0
+offset_right = 256.0
+offset_bottom = 1079.0
+texture_normal = ExtResource("10_v7c8n")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
