@@ -2,17 +2,17 @@ extends Control
 
 # Tus recetas perfectas
 var recetas = {
-	"mermelada_tomate": { "ingredientes": { "tomate": 10, "azucar": 5, "agua": 2 }, "tiempo_coccion": 10.0 },
-	"mermelada_frutilla": { "ingredientes": { "frutilla": 10, "azucar": 5, "agua": 2 }, "tiempo_coccion": 10.0 },
-	"mermelada_arandano": { "ingredientes": { "arandano": 15, "azucar": 5, "agua": 2 }, "tiempo_coccion": 10.0 },
-	"mermelada_cereza": { "ingredientes": { "cereza": 15, "azucar": 6, "agua": 2 }, "tiempo_coccion": 10.0 },
+	"mermelada_tomate": { "ingredientes": { "tomates": 10, "azucar": 5, "agua": 2 }, "tiempo_coccion": 10.0 },
+	"mermelada_frutilla": { "ingredientes": { "frutillas": 10, "azucar": 5, "agua": 2 }, "tiempo_coccion": 10.0 },
+	"mermelada_arandano": { "ingredientes": { "arandanos": 15, "azucar": 5, "agua": 2 }, "tiempo_coccion": 10.0 },
+	"mermelada_cereza": { "ingredientes": { "cerezas": 15, "azucar": 6, "agua": 2 }, "tiempo_coccion": 10.0 },
 	"mermelada_fruta_dragon": { "ingredientes": { "fruta_dragon": 5, "azucar": 2, "agua": 1 }, "tiempo_coccion": 10.0 },
-	"mermelada_mora": { "ingredientes": { "mora": 4, "azucar": 2, "agua": 1 }, "tiempo_coccion": 10.0 },
-	"mermelada_uva": { "ingredientes": { "uva": 4, "azucar": 2, "agua": 1 }, "tiempo_coccion": 10.0 },
-	"mermelada_calabaza": { "ingredientes": { "calabaza": 1, "azucar": 2, "agua": 1 }, "tiempo_coccion": 10.0 },
-	"maiz_tostado": { "ingredientes": { "maiz": 5, "aceite": 3, "sal": 1 }, "tiempo_coccion": 10.0 },
-	"salsa_tomate": { "ingredientes": { "tomate": 8, "aceite": 1 }, "tiempo_coccion": 10.0 },
-	"berenjenas_escabeche": { "ingredientes": { "berenjena": 6, "agua": 3, "vinagre": 2 }, "tiempo_coccion": 10.0 },
+	"mermelada_mora": { "ingredientes": { "moras": 4, "azucar": 2, "agua": 1 }, "tiempo_coccion": 10.0 },
+	"mermelada_uva": { "ingredientes": { "uvas": 4, "azucar": 2, "agua": 1 }, "tiempo_coccion": 10.0 },
+	"mermelada_calabaza": { "ingredientes": { "calabazas": 1, "azucar": 2, "agua": 1 }, "tiempo_coccion": 10.0 },
+	"maiz_tostado": { "ingredientes": { "maices": 5, "aceite": 3, "sal": 1 }, "tiempo_coccion": 10.0 },
+	"salsa_tomate": { "ingredientes": { "tomates": 8, "aceite": 1 }, "tiempo_coccion": 10.0 },
+	"berenjenas_escabeche": { "ingredientes": { "berenjenas": 6, "agua": 3, "vinagre": 2 }, "tiempo_coccion": 10.0 },
 	"conservar_ajies": { "ingredientes": { "ajies": 5, "aceite": 3 }, "tiempo_coccion": 10.0 }
 }
 
@@ -23,6 +23,7 @@ var receta_actual: String = ""
 @onready var timer_coccion: Timer = Timer.new()
 @onready var indicador_listo: Label = $IndicadorListo
 @onready var texto_timer: Label = $TextoTimer
+@onready var label_cosecha: Label = get_node_or_null("LabelCosecha")
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
@@ -32,6 +33,7 @@ func _ready() -> void:
 	add_child(timer_coccion)
 	timer_coccion.one_shot = true
 	timer_coccion.timeout.connect(_on_coccion_terminada)
+	_refrescar_contadores()
 
 func _process(_delta: float) -> void:
 	if estado == "COCINANDO" and texto_timer:
@@ -67,6 +69,7 @@ func _gui_input(event: InputEvent) -> void:
 func agregar_ingrediente(id: String) -> void:
 	contenido_olla[id] = contenido_olla.get(id, 0) + 1
 	print("En la olla hay: ", contenido_olla)
+	_refrescar_contadores()
 
 # Evalúa si la receta es perfecta, incompleta (sin sabor) o excedida (fea)
 func cocinar_mezcla_actual() -> void:
@@ -107,6 +110,7 @@ func cocinar_mezcla_actual() -> void:
 		iniciar_coccion("mermelada_fea")
 
 func iniciar_coccion(nombre_receta: String) -> void:
+	_descontar_frutos_al_cocinar()
 	estado = "COCINANDO"
 	receta_actual = nombre_receta
 	var tiempo = 5.0 if (nombre_receta == "mermelada_fea" or nombre_receta == "mermelada_sin_sabor") else recetas[nombre_receta]["tiempo_coccion"]
@@ -118,6 +122,7 @@ func iniciar_coccion(nombre_receta: String) -> void:
 	if texto_timer: 
 		texto_timer.visible = true
 		texto_timer.modulate = Color(1, 1, 1, 1)
+	_refrescar_contadores()
 
 func _on_coccion_terminada() -> void:
 	estado = "LISTO"
@@ -143,6 +148,7 @@ func _on_coccion_terminada() -> void:
 		indicador_listo.modulate = color_aviso
 
 func envasar_dulce() -> void:
+	_registrar_producto_elaborado(receta_actual)
 	print("¡Envasaste 1 frasco de ", receta_actual, "!")
 	reiniciar_olla()
 
@@ -152,6 +158,7 @@ func reiniciar_olla() -> void:
 	estado = "VACIA"
 	if indicador_listo: indicador_listo.visible = false
 	if texto_timer: texto_timer.visible = false
+	_refrescar_contadores()
 
 func mostrar_ingrediente_cayendo(textura: Texture2D) -> void:
 	var sprite = TextureRect.new()
@@ -169,3 +176,80 @@ func mostrar_ingrediente_cayendo(textura: Texture2D) -> void:
 	tween.tween_property(sprite, "position:y", sprite.position.y + 60, 0.35)
 	tween.tween_property(sprite, "modulate:a", 0.0, 0.35)
 	tween.chain().tween_callback(sprite.queue_free)
+
+func _obtener_stock_real(id_ingrediente: String) -> int:
+	var total := 0
+	
+	# 1. Revisamos inventory_manager.gd (frutos_cosechados)
+	var inv = get_node_or_null("/root/InventoryManager")
+	if inv == null:
+		inv = get_node_or_null("/root/inventory_manager")
+		
+	if inv != null:
+		if inv.has_method("obtener_cantidad_fruto"):
+			total = inv.obtener_cantidad_fruto(id_ingrediente)
+		elif "frutos_cosechados" in inv:
+			total = inv.frutos_cosechados.get(id_ingrediente, 0)
+			
+	# 2. Respaldo con game_manager.gd si es tomate y ahí figura cosechado
+	if total == 0 and id_ingrediente == "tomates":
+		var gm = get_node_or_null("/root/GameManager")
+		if gm == null:
+			gm = get_node_or_null("/root/game_manager")
+		if gm != null and "tomates_cosechados" in gm:
+			total = gm.tomates_cosechados
+
+	# Si está vacía (antes de cocinar), restamos lo ya cargado en la olla para vista previa
+	if estado == "VACIA":
+		total = max(0, total - contenido_olla.get(id_ingrediente, 0))
+			
+	return total
+
+func _descontar_frutos_al_cocinar() -> void:
+	var inv = get_node_or_null("/root/InventoryManager")
+	if inv == null:
+		inv = get_node_or_null("/root/inventory_manager")
+	var gm = get_node_or_null("/root/GameManager")
+	if gm == null:
+		gm = get_node_or_null("/root/game_manager")
+
+	for id_ing in contenido_olla:
+		var cant: int = contenido_olla[id_ing]
+		if cant <= 0:
+			continue
+
+		if inv != null and "frutos_cosechados" in inv and id_ing in inv.frutos_cosechados:
+			var actual: int = inv.frutos_cosechados[id_ing]
+			var restado: int = min(actual, cant)
+			inv.frutos_cosechados[id_ing] = actual - restado
+			var sobrante: int = cant - restado
+			if sobrante > 0 and id_ing == "tomates" and gm != null and "tomates_cosechados" in gm:
+				gm.tomates_cosechados = max(0, gm.tomates_cosechados - sobrante)
+		elif id_ing == "tomates" and gm != null and "tomates_cosechados" in gm:
+			gm.tomates_cosechados = max(0, gm.tomates_cosechados - cant)
+
+func _registrar_producto_elaborado(nombre_prod: String) -> void:
+	if nombre_prod.is_empty():
+		return
+	var inv = get_node_or_null("/root/InventoryManager")
+	if inv == null:
+		inv = get_node_or_null("/root/inventory_manager")
+	if inv != null and "productos_elaborados" in inv:
+		inv.productos_elaborados[nombre_prod] = inv.productos_elaborados.get(nombre_prod, 0) + 1
+
+func actualizar_panel_cosecha() -> void:
+	if label_cosecha == null:
+		return
+	var partes: Array[String] = []
+	var claves := ["tomates", "berenjenas", "ajies", "uvas", "maices", "frutillas", "moras", "calabazas", "arandanos", "cerezas", "fruta_dragon"]
+	for clave in claves:
+		var restante = _obtener_stock_real(clave)
+		if restante > 0:
+			partes.append(clave.capitalize() + ": " + str(restante))
+	label_cosecha.text = "Cosechado: " + (" | ".join(partes) if not partes.is_empty() else "0")
+
+func _refrescar_contadores() -> void:
+	actualizar_panel_cosecha()
+	var carrusel = get_tree().current_scene.find_child("CarruselFrutas", true, false)
+	if carrusel and carrusel.has_method("actualizar_contador_actual"):
+		carrusel.actualizar_contador_actual()

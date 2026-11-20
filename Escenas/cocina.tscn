@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://crjwyv0oiccd8" path="res://botones/agua.png" id="6_b5anw"]
 [ext_resource type="Texture2D" uid="uid://3sfodvo57f6c" path="res://botones/azucar_sin.png" id="6_xrhem"]
 [ext_resource type="Script" uid="uid://bylbmhsdrggta" path="res://Escenas/CarruselIngredientes.gd" id="8_h561l"]
+[ext_resource type="Texture2D" uid="uid://cpq8ssq4nx638" path="res://botones/redondel_resultado (2).png" id="9_v7c8n"]
 [ext_resource type="Texture2D" uid="uid://dqalokn8frgkl" path="res://botones/back.png" id="10_v7c8n"]
 
 [node name="Control" type="Control" unique_id=1766700942]
@@ -150,5 +151,29 @@ offset_top = 951.0
 offset_right = 256.0
 offset_bottom = 1079.0
 texture_normal = ExtResource("10_v7c8n")
+
+[node name="BadgeCantidad" type="TextureRect" parent="." unique_id=1589499536]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 614.0
+offset_right = 201.0
+offset_bottom = 664.0
+mouse_filter = 2
+texture = ExtResource("9_v7c8n")
+stretch_mode = 5
+
+[node name="LabelCantidad" type="Label" parent="BadgeCantidad" unique_id=2022784484]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -11.5
+offset_right = 14.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -3,52 +3,52 @@ extends HBoxContainer
 @onready var btn_izq: TextureButton = $BtnIzq
 @onready var btn_actual: TextureButton = $BtnActual
 @onready var btn_der: TextureButton = $BtnDer
+@onready var label_cantidad: Label = get_tree().current_scene.find_child("LabelCantidad", true, false)
 
-# ACÁ AGREGÁS TODAS TUS FRUTAS Y VERDURAS CON SUS TEXTURAS Y SU ID
 @export var ingredientes: Array[Dictionary] = [
 	{
-		"id": "mora",
-		"textura": preload("res://botones/veduras_frutas/moras.png") 
+		"id": "moras",
+		"textura": preload("res://botones/veduras_frutas/moras.png")
 	},
 	{
-		"id": "tomate",
-		"textura": preload("res://botones/veduras_frutas/tomate.png") 
+		"id": "tomates",
+		"textura": preload("res://botones/veduras_frutas/tomate.png")
 	},
 	{
 		"id": "ajies",
-		"textura": preload("res://botones/veduras_frutas/ajis.png") 
+		"textura": preload("res://botones/veduras_frutas/ajis.png")
 	},
 	{
 		"id": "arandanos",
-		"textura": preload("res://botones/veduras_frutas/arandanos.png") 
+		"textura": preload("res://botones/veduras_frutas/arandanos.png")
 	},
 	{
-		"id": "berejena",
-		"textura": preload("res://botones/veduras_frutas/berejena.png") 
+		"id": "berenjenas",
+		"textura": preload("res://botones/veduras_frutas/berejena.png")
 	},
 	{
-		"id": "calabaza",
-		"textura": preload("res://botones/veduras_frutas/calabaza.png") 
+		"id": "calabazas",
+		"textura": preload("res://botones/veduras_frutas/calabaza.png")
 	},
 	{
-		"id": "cereza",
-		"textura": preload("res://botones/veduras_frutas/cerezas.png") 
+		"id": "cerezas",
+		"textura": preload("res://botones/veduras_frutas/cerezas.png")
 	},
 	{
 		"id": "fruta_dragon",
-		"textura": preload("res://botones/veduras_frutas/fruta_dragon.png") 
+		"textura": preload("res://botones/veduras_frutas/fruta_dragon.png")
 	},
 	{
-		"id": "frutilla",
-		"textura": preload("res://botones/veduras_frutas/frutillas.png") 
+		"id": "frutillas",
+		"textura": preload("res://botones/veduras_frutas/frutillas.png")
 	},
 	{
 		"id": "maices",
-		"textura": preload("res://botones/veduras_frutas/maices.png") 
+		"textura": preload("res://botones/veduras_frutas/maices.png")
 	},
 	{
-		"id": "uva",
-		"textura": preload("res://botones/veduras_frutas/uvas.png") 
+		"id": "uvas",
+		"textura": preload("res://botones/veduras_frutas/uvas.png")
 	},
 ]
 
@@ -78,3 +78,27 @@ func actualizar_carrusel() -> void:
 	
 	# 2. Actualizamos automáticamente el ID para que al arrastrar sepa qué ingrediente es
 	btn_actual.id_item = item_actual["id"]
+	
+	# 3. Actualizamos el número del redondel
+	actualizar_contador_actual()
+
+func actualizar_contador_actual() -> void:
+	if label_cantidad == null:
+		label_cantidad = get_tree().current_scene.find_child("LabelCantidad", true, false)
+	if label_cantidad == null or ingredientes.is_empty():
+		return
+
+	var id_actual: String = ingredientes[indice_actual]["id"]
+	var cantidad := 0
+
+	var zona_olla = get_tree().current_scene.find_child("ZonaOlla", true, false)
+	if zona_olla != null and zona_olla.has_method("_obtener_stock_real"):
+		cantidad = zona_olla._obtener_stock_real(id_actual)
+	elif has_node("/root/InventoryManager"):
+		var inv = get_node("/root/InventoryManager")
+		if inv.has_method("obtener_cantidad_fruto"):
+			cantidad = inv.obtener_cantidad_fruto(id_actual)
+		elif "frutos_cosechados" in inv:
+			cantidad = inv.frutos_cosechados.get(id_actual, 0)
+
+	label_cantidad.text = str(cantidad)
