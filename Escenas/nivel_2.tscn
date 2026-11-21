@@ -36,7 +36,8 @@ metadata/_edit_lock_ = true
 [node name="SpawnerTopos" type="Marker2D" parent="." unique_id=2042843427]
 position = Vector2(3083, 626)
 script = ExtResource("4_udchn")
-dificultad_actual = 2
+tiempo_min_topos = 5.0
+tiempo_max_topos = 6.0
 
 [node name="TimerOleada" type="Timer" parent="SpawnerTopos" unique_id=675300901]
 wait_time = 6.0
