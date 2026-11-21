@@ -18,18 +18,33 @@ var nivel_1_completado: bool = false
 var planta_del_nivel: PackedScene  = preload("res://Escenas/planta_base.tscn")
 var escena_popup: PackedScene = preload("res://Escenas/popup_desbloqueos.tscn")
 var frutos_cosechados_en_nivel: int = 0
+var pociones_curativas: int = 0
+var bombas_anti_topos: int = 0
+var vallas_piedra: int = 0
+
 
 #Diccionario de mejoras para comprar con monedas:
 var mejoras_desbloqueadas: Dictionary ={
 	"canion_techo": false,
-	"semillas_poderosas": false, # inventar planta nueva
-	"herramienta_escudo": false # inventar arma nueva
+	"semillas_poderosas": false, 
+	"herramienta_escudo": false, 
+	"pocion_curativa": false,
+	"escudo_piedra": false,
+	"bomba_anti_topos": false,
+	"ametralladora_canion": false 
 }
-#diccionario para los precios:
+#diccionario para los precios de la tienda:
 var precios_mejoras: Dictionary={
 	"canion_techo": 150,
-	"semillas_poderosas": 100, # inventar planta nueva
-	"herramienta_escudo": 100 # inventar arma nueva
+	"semillas_poderosas": 100,
+	"herramienta_escudo": 100,
+	"agua": 50,
+	"azucar": 50,
+	"aceite": 50,
+	"pocion_curativa": 80,
+	"escudo_piedra": 200,
+	"bomba_anti_topos": 500,
+	"ametralladora_canion": 800 
 }
 
 
@@ -124,6 +139,27 @@ func semillas_poderosas_actuales(cantidad: int):
 		mejoras_desbloqueadas["semillas_poderosas"] = false
 		
 	actualizar_semillas_poderosas.emit(semillas_poderosas)
+
+# Valla de piedra:
+func vallas_piedra_actuales(cantidad: int):
+	vallas_piedra += cantidad
+	if vallas_piedra <= 0:
+		vallas_piedra = 0
+		mejoras_desbloqueadas["valla_piedra"] = false
+
+# Bomba anti topos:
+func bombas_actuales(cantidad: int):
+	bombas_anti_topos += cantidad
+	if bombas_anti_topos <= 0:
+		bombas_anti_topos = 0
+		mejoras_desbloqueadas["bomba_anti_topos"] = false
+
+# Poción curativa:
+func pociones_actuales(cantidad: int):
+	pociones_curativas += cantidad
+	if pociones_curativas <= 0:
+		pociones_curativas = 0
+		mejoras_desbloqueadas["pocion_curativa"] = false
 
 func resetear_para_nuevo_nivel():
 	topos_derrotados = 0

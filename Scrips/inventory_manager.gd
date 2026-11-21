@@ -4,7 +4,15 @@ extends Node
 signal fruto_actualizado(id_fruto: String, nueva_cantidad: int)
 signal tickets_actualizados(nueva_cantidad: int)
 signal decoracion_desbloqueada(id_decoracion: String)
+signal ingrediente_actualizado(id_ingrediente: String, nueva_cantidad: int)
 
+#diccionario de los ingredientes comprados para cocinar:
+var ingredientes_cocina: Dictionary={
+	"agua" = 0,
+	"azucar" = 0,
+	"aceite" = 0
+	
+}
 #diccionario para los frutos cosechados de cada nivel:
 var frutos_cosechados: Dictionary ={
 	"tomates" = 0,
@@ -36,7 +44,9 @@ var productos_elaborados: Dictionary ={
 	"mermelada_fruta_dragon" = 0
 }
 
-
+#------------------
+# funciones frutos:
+#------------------
 func agregar_fruto(id_fruto: String, cantidad: int) -> void:
 	if frutos_cosechados.has(id_fruto):
 		frutos_cosechados[id_fruto] += cantidad
@@ -60,6 +70,30 @@ func cocinar_fruto(id_fruto: String, cantidad: int) -> bool:
 		return true
 	print("Intento fallido de cocina: ", id_fruto, " insuficientes (tienes ", actual, ", requiere ", cantidad, ")")
 	return false
+
+#--------------------------------------------------
+# funciones ingredientes (aceite, agua, azucar):
+#---------------------------------------------------
+func agregar_ingrediente(id: String, cantidad:int) ->void:
+	if ingredientes_cocina.has(id):
+		ingredientes_cocina[id] += cantidad
+		ingrediente_actualizado.emit(id, ingredientes_cocina[id])
+	else:
+		ingredientes_cocina[id] = cantidad
+		ingrediente_actualizado.emit(id, cantidad)
+	print("Ingrediente comprado: ", id, " +", cantidad, " (Total: ", ingredientes_cocina[id], ")")
+
+func obtener_ingredientes(id: String) ->int:
+	return ingredientes_cocina.get(id, 0)
+
+func cocinar_ingrediente(id: String, cantidad: int) ->bool:
+	var actual: int = obtener_ingredientes(id)
+	if actual >= cantidad:
+		ingredientes_cocina[id] -= cantidad
+		ingrediente_actualizado.emit(id, ingredientes_cocina[id])
+		return true
+	return false
+
 
 #--------------------------
 #TICKETS PARA DECORACIONES:
