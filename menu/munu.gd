@@ -14,3 +14,12 @@ func _on_setting_pressed() -> void:
 
 func _on_mapa_pressed() -> void:
 	get_tree().change_scene_to_file("res://Escenas/mapa.tscn")
+
+
+func _on_elaboracion_pressed() -> void:
+	get_tree().change_scene_to_file("res://Escenas/cocina.tscn")
+
+
+func _on_elaboracion_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		get_tree().change_scene_to_file("res://Escenas/cocina.tscn")
