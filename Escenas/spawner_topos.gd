@@ -6,6 +6,8 @@ signal  eliminar_topos_restantes
 var fabrica = FactoryEnemigos.new()
 #NIVEL DE DIFICULTAD
 @export var dificultad_actual = 1
+@export var tiempo_min_topos: float = 4.0
+@export var tiempo_max_topos: float = 5.5
 
 func _ready() -> void:
 	#CONECTAMOS EL TIMER
@@ -14,7 +16,7 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	generar_topo()
 	#GENERAR ALEATORIEDAD PARA EL TIMER
-	var nuevo_tiempo = randf_range(4.0, 6.0)
+	var nuevo_tiempo = randf_range(tiempo_min_topos, tiempo_max_topos)
 	#ASIGNAR EL NUEVO TIEMPO AL RELOJ:
 	$TimerOleada.wait_time = nuevo_tiempo
 	

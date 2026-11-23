@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://dtlmkgsfwnd8p"]
+
+[ext_resource type="Texture2D" uid="uid://b44qmljyr28mg" path="res://Assets/anim_bomba.png" id="1_egrr6"]
+[ext_resource type="Texture2D" uid="uid://cqxn7sifouhsw" path="res://Assets/BG_2.jpg" id="1_kywif"]
+[ext_resource type="Script" uid="uid://cyedwi04jpr1f" path="res://Escenas/explosion.gd" id="1_u1vy6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kywif"]
+atlas = ExtResource("1_egrr6")
+region = Rect2(0, 0, 550, 508)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1vy6"]
+atlas = ExtResource("1_egrr6")
+region = Rect2(550, 0, 550, 508)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5obef"]
+atlas = ExtResource("1_egrr6")
+region = Rect2(1100, 0, 550, 508)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e8k3"]
+atlas = ExtResource("1_egrr6")
+region = Rect2(1650, 0, 550, 508)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol2lc"]
+atlas = ExtResource("1_egrr6")
+region = Rect2(2200, 0, 550, 508)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2n5v"]
+atlas = ExtResource("1_egrr6")
+region = Rect2(2750, 0, 550, 508)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t0pxk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kywif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1vy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5obef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0e8k3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol2lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2n5v")
+}],
+"loop": false,
+"name": &"bomba",
+"speed": 10.0
+}]
+
+[node name="Explosion" type="Node2D" unique_id=905075625]
+script = ExtResource("1_u1vy6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2107849764]
+visible = false
+position = Vector2(1755, 551)
+texture = ExtResource("1_kywif")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1430931376]
+position = Vector2(1605, 537)
+sprite_frames = SubResource("SpriteFrames_t0pxk")
+animation = &"bomba"
+frame = 4
+frame_progress = 0.2951746
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1863365731]
+position = Vector2(1432, 606)
+sprite_frames = SubResource("SpriteFrames_t0pxk")
+animation = &"bomba"
+frame = 4
+frame_progress = 0.46955037

@@ -44,3 +44,17 @@ func recibir_danio (dmg: int) -> void:
 func chequear_muerte() -> void:
 		if actual_hp <=0:
 			muerte.emit()
+			
+func curar(cantidad: int) -> bool:
+	# Si ya tiene la vida llena:
+	if actual_hp >= max_hp:
+		return false
+	
+	actual_hp += cantidad
+	if actual_hp > max_hp:
+		actual_hp = max_hp
+		
+	# Emitimos la señal para curar:
+	impacto_recibido.emit(actual_hp)
+	return true
+	

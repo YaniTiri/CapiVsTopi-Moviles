@@ -37,6 +37,8 @@ metadata/_edit_lock_ = true
 position = Vector2(3083, 626)
 script = ExtResource("5_bp2kh")
 dificultad_actual = 2
+tiempo_min_topos = 4.5
+tiempo_max_topos = 6.0
 
 [node name="TimerOleada" type="Timer" parent="SpawnerTopos" unique_id=675300901]
 wait_time = 6.0

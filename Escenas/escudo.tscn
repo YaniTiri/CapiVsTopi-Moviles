@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b3xlrkyif0525"]
 
 [ext_resource type="Script" uid="uid://dtlpmks1bc133" path="res://Escenas/escudo.gd" id="1_k2nii"]
-[ext_resource type="Texture2D" uid="uid://cdoxhufi5btte" path="res://Assets/vallanuevaFlipeada.png" id="2_a1uio"]
+[ext_resource type="Texture2D" uid="uid://prc0mnhl5c81" path="res://Assets/vallanuevaFlipeada_b.png" id="2_a1uio"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlvce"]
 size = Vector2(104, 129)

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ddpqy8wila8c4" path="res://Assets/botonSemillas.png" id="4_h2qel"]
 [ext_resource type="Script" uid="uid://c3x61rlevibot" path="res://Escenas/botones_huerta.gd" id="4_ws310"]
 [ext_resource type="Texture2D" uid="uid://c0mowerskp8gr" path="res://Assets/botonRegadera.png" id="5_467ac"]
+[ext_resource type="Texture2D" uid="uid://fanac0snt82v" path="res://Assets/boton_pocion.png" id="5_cocda"]
 [ext_resource type="Texture2D" uid="uid://bbadvecnhx4l6" path="res://Assets/botonCanasta.png" id="6_gimqf"]
 [ext_resource type="Texture2D" uid="uid://6uy0bhc3s0qc" path="res://Assets/UImonedas.png" id="7_467ac"]
 [ext_resource type="Script" uid="uid://e4alhvcp1qsc" path="res://Escenas/puntaje_prov.gd" id="7_gimqf"]
@@ -12,6 +13,7 @@
 [ext_resource type="LabelSettings" uid="uid://b1awagy0mk5j0" path="res://tipografias/semillasHUD_settings.tres" id="8_leyp3"]
 [ext_resource type="Texture2D" uid="uid://db6ourjk8ufqs" path="res://Assets/UIoleada_topos.png" id="9_76q2b"]
 [ext_resource type="FontFile" uid="uid://dt26tqnbpbtxh" path="res://tipografias/LuckiestGuy-Regular.ttf" id="10_3ssh1"]
+[ext_resource type="Texture2D" uid="uid://bk0vhneii64td" path="res://Assets/btn_bomba.png" id="10_30av3"]
 [ext_resource type="LabelSettings" uid="uid://ycdmqo4jip2u" path="res://tipografias/ui_settings.tres" id="11_3ssh1"]
 [ext_resource type="Texture2D" uid="uid://dl3mqse37vu4u" path="res://Assets/UI_barra_vida_base.png" id="12_qfr17"]
 [ext_resource type="Script" uid="uid://bqachtkgjfo84" path="res://Escenas/topos_derrotados.gd" id="13_3of7u"]
@@ -85,6 +87,20 @@ scale = Vector2(0.6, 0.6)
 focus_mode = 0
 texture_normal = ExtResource("4_h2qel")
 
+[node name="BotonPocion" type="TextureButton" parent="BotonesHuerta/ContenedorFade" unique_id=1448682048]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 40.0
+offset_right = 811.0
+offset_bottom = 378.0
+scale = Vector2(0.6, 0.6)
+focus_mode = 0
+texture_normal = ExtResource("5_cocda")
+
+[node name="TimerPocion" type="Timer" parent="BotonesHuerta/ContenedorFade/BotonPocion" unique_id=1817702636]
+wait_time = 10.0
+one_shot = true
+
 [node name="BotonRegadera" type="TextureButton" parent="BotonesHuerta/ContenedorFade" unique_id=770475113]
 layout_mode = 0
 offset_left = 917.9999
@@ -115,12 +131,51 @@ scale = Vector2(0.6, 0.6)
 focus_mode = 0
 texture_normal = ExtResource("7_u24l1")
 
+[node name="BotonBomba" type="TextureButton" parent="BotonesHuerta/ContenedorFade" unique_id=1898639548]
+layout_mode = 0
+offset_left = 1680.0
+offset_top = 875.0
+offset_right = 1898.0
+offset_bottom = 1056.0
+texture_normal = ExtResource("10_30av3")
+
+[node name="TimerBomba" type="Timer" parent="BotonesHuerta/ContenedorFade/BotonBomba" unique_id=830088096]
+wait_time = 15.0
+one_shot = true
+
 [node name="SemillasPoderosasLabel" type="Label" parent="BotonesHuerta/ContenedorFade" unique_id=1736367581]
 layout_mode = 0
 offset_left = 722.0
 offset_top = 188.0
 offset_right = 786.0
 offset_bottom = 224.0
+text = "x00"
+label_settings = ExtResource("8_leyp3")
+
+[node name="PocionesLabel" type="Label" parent="BotonesHuerta/ContenedorFade" unique_id=641592896]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 188.0
+offset_right = 564.0
+offset_bottom = 224.0
+text = "x00"
+label_settings = ExtResource("8_leyp3")
+
+[node name="VallasPiedraLabel" type="Label" parent="BotonesHuerta/ContenedorFade" unique_id=1428498733]
+layout_mode = 0
+offset_left = 1400.0
+offset_top = 188.0
+offset_right = 1464.0
+offset_bottom = 224.0
+text = "x00"
+label_settings = ExtResource("8_leyp3")
+
+[node name="BombaLabel" type="Label" parent="BotonesHuerta/ContenedorFade" unique_id=1694374526]
+layout_mode = 0
+offset_left = 1710.0
+offset_top = 893.0
+offset_right = 1774.0
+offset_bottom = 929.0
 text = "x00"
 label_settings = ExtResource("8_leyp3")
 
@@ -218,6 +273,8 @@ action = "abajo"
 visibility_mode = 1
 
 [connection signal="button_down" from="BotonesHuerta/ContenedorFade/BotonSemillas" to="BotonesHuerta" method="_on_boton_semillas_button_down"]
+[connection signal="pressed" from="BotonesHuerta/ContenedorFade/BotonPocion" to="BotonesHuerta" method="_on_boton_pocion_pressed"]
 [connection signal="button_down" from="BotonesHuerta/ContenedorFade/BotonRegadera" to="BotonesHuerta" method="_on_boton_regadera_button_down"]
 [connection signal="button_down" from="BotonesHuerta/ContenedorFade/BotonCanasta" to="BotonesHuerta" method="_on_boton_canasta_button_down"]
 [connection signal="button_down" from="BotonesHuerta/ContenedorFade/BotonEscudo" to="BotonesHuerta" method="_on_boton_escudo_button_down"]
+[connection signal="pressed" from="BotonesHuerta/ContenedorFade/BotonBomba" to="BotonesHuerta" method="_on_boton_bomba_pressed"]

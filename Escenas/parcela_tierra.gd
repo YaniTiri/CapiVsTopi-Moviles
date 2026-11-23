@@ -3,6 +3,7 @@ class_name ParcelaTierra
 
 #var planta_scene = preload("res://Escenas/planta_base.tscn")
 var escudo_scene = preload("res://Escenas/escudo.tscn")
+var escudo_piedra_scene = preload("res://Escenas/herramienta_escudo_piedra.tscn")
 
 var planta_actual: Node2D = null
 var escudo_actual: Node2D = null
@@ -48,11 +49,28 @@ func cosechar() -> void:
 		else:
 			print("no se pudo cosechar")
 			
-func colocar_escudo() -> void: #Con esta función se coloca la valla, aunque algo salió mal, revisar
+func colocar_escudo() -> void: 
 	if escudo_actual == null:
 		escudo_actual = escudo_scene.instantiate()
 		add_child(escudo_actual)
 		escudo_actual.position.x = 35
-		print("Al fin coloqué la valla!!")
-	else:
-		print("Ya hay valla acá")
+		escudo_actual.position.y = -35
+		
+
+func colocar_escudo_piedra() -> void:
+	if escudo_actual == null:
+		escudo_actual = escudo_scene.instantiate()
+		add_child(escudo_actual)
+		escudo_actual.position.x = 35
+		escudo_actual.position.y = -35
+		# dar más vida:
+		escudo_actual.vida_maxima = 300
+		escudo_actual.vida_actual = 300
+		# cambia textura:
+		escudo_actual.get_node("Sprite2D").texture = load("res://Assets/vallaPiedra.png")
+
+		
+
+
+func _on_boton_bomba_pressed() -> void:
+	pass # Replace with function body.

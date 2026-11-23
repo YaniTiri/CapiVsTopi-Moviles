@@ -2,15 +2,18 @@
 
 [ext_resource type="Script" uid="uid://dkoh31j10h606" path="res://Escenas/nivel_1.gd" id="1_gj223"]
 [ext_resource type="PackedScene" uid="uid://x0txvriq1014" path="res://Escenas/planta_base.tscn" id="2_310hg"]
-[ext_resource type="Texture2D" uid="uid://ddqntp6ieq2jv" path="res://Assets/BG_1.png" id="2_hid1b"]
+[ext_resource type="Texture2D" uid="uid://dkrkjq3kkdrtm" path="res://Assets/BG_1.png" id="2_hid1b"]
 [ext_resource type="PackedScene" uid="uid://cxw065dy06eeb" path="res://Escenas/capi.tscn" id="3_os1ql"]
 [ext_resource type="Script" uid="uid://b0tel4kbcad6i" path="res://Escenas/spawner_topos.gd" id="5_lswwr"]
-[ext_resource type="FontFile" uid="uid://b3wff4tgo2anj" path="res://tipografias/LuckiestGuy-Regular.ttf" id="6_l8lnw"]
+[ext_resource type="FontFile" uid="uid://dt26tqnbpbtxh" path="res://tipografias/LuckiestGuy-Regular.ttf" id="6_l8lnw"]
 [ext_resource type="PackedScene" uid="uid://duenmj8ivln36" path="res://Escenas/mundoHuerta_prueba.tscn" id="6_llk6u"]
 [ext_resource type="LabelSettings" uid="uid://npsdjyyktbs6" path="res://tipografias/mensajes_label_settings.tres" id="7_l8lnw"]
-[ext_resource type="AudioStream" uid="uid://bvdtvxmgt1ds5" path="res://musica_sfx/nivel_1.mp3" id="8_rbs6h"]
+[ext_resource type="AudioStream" uid="uid://c8y5fwf6df5sr" path="res://musica_sfx/nivel_1.mp3" id="8_rbs6h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8lnw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_310hg"]
+size = Vector2(20, 46.326576)
 
 [node name="Nivel1" type="Node2D" unique_id=2084416755]
 script = ExtResource("1_gj223")
@@ -35,6 +38,8 @@ metadata/_edit_lock_ = true
 [node name="SpawnerTopos" type="Marker2D" parent="." unique_id=2042843427]
 position = Vector2(3083, 626)
 script = ExtResource("5_lswwr")
+tiempo_min_topos = 5.0
+tiempo_max_topos = 7.0
 
 [node name="TimerOleada" type="Timer" parent="SpawnerTopos" unique_id=675300901]
 wait_time = 6.0
@@ -73,3 +78,10 @@ debug_color = Color(0.660971, 0, 0.36298633, 0.41960785)
 stream = ExtResource("8_rbs6h")
 volume_db = -10.0
 autoplay = true
+
+[node name="AreaPiso" type="Area2D" parent="." unique_id=274323251]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPiso" unique_id=1857387098]
+position = Vector2(993.99994, 875.00006)
+scale = Vector2(100.29195, -9.497181)
+shape = SubResource("RectangleShape2D_310hg")

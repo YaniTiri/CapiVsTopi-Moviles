@@ -26,8 +26,13 @@ func _ready() -> void:
 	#	botones_huerta.get_node("BotonEscudo").hide() #NUEVO OCULTAR ESCUDO.NO SE PORQUE APARECE.
 		
 	#PARA PROBAR CAÑON:
-	#GameManager.mejoras_desbloqueadas["canion_techo"] = true
-	#GameManager.mejoras_desbloqueadas["herramienta_escudo"] = true
+	#GameManager.mejoras_desbloqueadas["ametralladora_canion"] = true
+	#GameManager.pociones_curativas = 3
+	#GameManager.actualizar_pociones.emit(GameManager.pociones_curativas)
+	#GameManager.bombas_actuales(2)
+	#GameManager.actualizar_bombas.emit(GameManager.bombas_anti_topos)
+	
+	
 	#Funcion para Instanciar Mejoras de la tienda
 	instanciar_mejoras()
 	
@@ -88,7 +93,7 @@ func fade_in(nodo: Node, tiempo: float) ->void:
 	
 # por ahora tenemos la mejora del canion en el techo nada mas, aca se instancia:	
 func instanciar_mejoras() -> void:
-	if GameManager.mejoras_desbloqueadas["canion_techo"] == true:
+	if GameManager.mejoras_desbloqueadas["canion_techo"] == true or GameManager.mejoras_desbloqueadas["ametralladora_canion"] == true :
 		var nuevo_canion = mejora_canion_techo.instantiate()
 		#nuevo_canion.global_position = global_position
 		add_child(nuevo_canion)

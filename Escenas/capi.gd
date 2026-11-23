@@ -8,6 +8,8 @@ var disparo_capi = preload("res://Escenas/disparo_capi.tscn")
 @onready var timer_disparo: Timer = $TimerDisparo
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+
+
 var topos_en_area_vision: int = 0
 
 # --- NUEVO: SISTEMA DE CARRILES PARA EL CAPI ---
@@ -23,6 +25,7 @@ func _ready() -> void:
 	# Posicionamos al Capi en el carril inicial al arrancar
 	global_position.y = carriles_y[indice_carril_actual]
 	animation_player.play("capi_de_pie")
+	GameManager.curar_capi.connect(recibir_curacion)
 	pass
 	
 
@@ -95,6 +98,14 @@ func morir() -> void:
 	GameManager.activar_game_over()
 	queue_free()
 
+func recibir_curacion(cantidad: int) -> void:
+	var gestor = $GestorDeHp
+	var se_curo = gestor.curar(cantidad)
+	if se_curo:
+		# Efecto de curación:
+		var tween = create_tween()
+		tween.tween_property($Sprite2D, "modulate", Color(0.4, 1.4, 0.4), 0.15)
+		tween.tween_property($Sprite2D, "modulate", Color(1, 1, 1), 0.15)
 
 func _on_gestor_de_hp_impacto_recibido(hp: int) -> void:
 	GameManager.actualizar_vida_capi.emit(hp)
