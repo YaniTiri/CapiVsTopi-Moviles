@@ -17,9 +17,9 @@ var tween_enojo: Tween = null
 
 #Funciones
 func _ready() -> void: #Con esto nuevo bajan tomando en cuenta las parcelas y se acomodan visualmente
+	
 	global_position.y = carriles_y.pick_random() + ajuste_visual_y 
-	#$GestorDeHp.area_entered.connect(_on_gestor_de_hp_area_entered)
-	#$GestorDeHp.area_exited.connect(_on_gestor_de_hp_area_exited)
+	
 	# Al final de la función, evaluamos qué color le asignó el Spawner antes de nacer
 	if tipo_color == "verde": 
 		$AnimationPlayer.play ("topi_camina_verde")
@@ -27,6 +27,7 @@ func _ready() -> void: #Con esto nuevo bajan tomando en cuenta las parcelas y se
 		$AnimationPlayer.play ("topi_camina_amarillo")
 	else:
 		$AnimationPlayer.play("topi_camina")
+		
 
 
 func _physics_process(delta: float) -> void:

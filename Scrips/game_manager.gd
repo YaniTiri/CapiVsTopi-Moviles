@@ -56,6 +56,12 @@ signal actualizar_monedas(cantidad: int)
 signal game_over
 signal pausar_despausar(estado: bool)
 signal actualizar_semillas_poderosas(cantidad: int)
+signal actualizar_vallas_piedra(cantidad: int)
+signal actualizar_bombas(cantidad: int)
+#Pocion para curar al capi:
+signal actualizar_pociones(cantidad: int)
+signal curar_capi(cantidad_hp: int)
+
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -146,6 +152,7 @@ func vallas_piedra_actuales(cantidad: int):
 	if vallas_piedra <= 0:
 		vallas_piedra = 0
 		mejoras_desbloqueadas["valla_piedra"] = false
+	actualizar_vallas_piedra.emit(vallas_piedra)
 
 # Bomba anti topos:
 func bombas_actuales(cantidad: int):
@@ -153,6 +160,7 @@ func bombas_actuales(cantidad: int):
 	if bombas_anti_topos <= 0:
 		bombas_anti_topos = 0
 		mejoras_desbloqueadas["bomba_anti_topos"] = false
+	actualizar_bombas.emit(bombas_anti_topos)
 
 # Poción curativa:
 func pociones_actuales(cantidad: int):
@@ -160,6 +168,16 @@ func pociones_actuales(cantidad: int):
 	if pociones_curativas <= 0:
 		pociones_curativas = 0
 		mejoras_desbloqueadas["pocion_curativa"] = false
+	actualizar_pociones.emit(pociones_curativas)
+
+func usar_pocion_curativa(cura: int = 40) -> bool:
+	if pociones_curativas > 0:
+		pociones_actuales(-1)
+		curar_capi.emit(cura)
+		print("Poción usada. Cura: ", cura, " HP. Pociones restantes: ", pociones_curativas)
+		return true
+	return false
+	
 
 func resetear_para_nuevo_nivel():
 	topos_derrotados = 0

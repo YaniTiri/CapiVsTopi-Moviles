@@ -12,6 +12,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8lnw"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_310hg"]
+size = Vector2(20, 46.326576)
+
 [node name="Nivel1" type="Node2D" unique_id=2084416755]
 script = ExtResource("1_gj223")
 topos_a_derrotar = 4
@@ -75,3 +78,10 @@ debug_color = Color(0.660971, 0, 0.36298633, 0.41960785)
 stream = ExtResource("8_rbs6h")
 volume_db = -10.0
 autoplay = true
+
+[node name="AreaPiso" type="Area2D" parent="." unique_id=274323251]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPiso" unique_id=1857387098]
+position = Vector2(993.99994, 875.00006)
+scale = Vector2(100.29195, -9.497181)
+shape = SubResource("RectangleShape2D_310hg")
